@@ -1,0 +1,286 @@
+% !TeX root =./x2.tex
+% !TeX program = pdfpLaTeX
+%\documentclass[a4paper,12pt,draft]{amsart}
+%\documentclass[a4paper,12pt]{amsart}
+\documentclass[tombow,dvipdfmx]{jsarticle} 
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{braket}
+%\usepackage{showkeys}
+\AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% theorems
+\theoremstyle{plain}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{theorem}[thm]{Theorem}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{proposition}[thm]{Proposition}
+\newtheorem{prop}[thm]{Proposition}
+
+\newtheorem{condition}[thm]{Condition}
+
+\theoremstyle{remark}
+
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{example}[thm]{Example}
+\newtheorem{exercise}[thm]{Exercise}
+
+\newtheorem*{acknowledgment}{Acknowledgment}
+\newtheorem*{ackn}{Acknowledgment}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{algorithm}[thm]{Algorithm}
+\newtheorem{question}[thm]{Question}
+\newtheorem{problem}[thm]{Problem}
+\newtheorem{notation}[thm]{Notation}
+\newtheorem{conjecture}[thm]{Conjecture}
+\newtheorem{conj}[thm]{Conjecture}
+
+
+% Cref
+\crefname{section}{Section}{Sections}
+
+\crefname{thm}{Theorem}{Theorems}
+\Crefname{thm}{Theorem}{Theorems}
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{cor}{Corollary}{Corollaries}
+\Crefname{cor}{Corollary}{Corollaries}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{prop}{Proposition}{Propositions}
+\Crefname{prop}{Proposition}{Propositions}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{rem}{Remark}{Remarks}
+\Crefname{rem}{Remark}{Remarks}
+\crefname{example}{Example}{Examples}
+\Crefname{Example}{Example}{Examples}
+\crefname{exercise}{Exercise}{Exercises}
+\Crefname{exercise}{Exercise}{Exercises}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{dfn}{Definition}{Definitions}
+\Crefname{dfn}{Definition}{Definitions}
+\crefname{algorithm}{Algorithm}{Algorithms}
+\Crefname{algorithm}{Algorithm}{Algorithms}
+\crefname{question}{Question}{Questions}
+\Crefname{question}{Question}{Questions}
+\crefname{problem}{Problem}{Problems}
+\Crefname{problem}{Problem}{Problems}
+\crefname{notation}{Notation}{Notations}
+\Crefname{notation}{Notation}{Notations}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{conj}{Conjecture}{Conjectures}
+\Crefname{conj}{Conjecture}{Conjectures}
+\crefname{condition}{Condition}{Conditions}
+\Crefname{condition}{Condition}{Conditions}
+
+% theorems 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% blackboard bold capital
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\FF}{\mathbf{F}}
+%
+% blackboard bold capital
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% caligraphic capital
+
+\newcommand{\AAA}{\mathcal{A}}
+\newcommand{\BBB}{\mathcal{B}}
+\newcommand{\CCC}{\mathcal{C}}
+\newcommand{\FFF}{\mathcal{F}}
+\newcommand{\TTT}{\mathcal{T}}
+\newcommand{\HHH}{\mathcal{H}}
+\newcommand{\SSS}{\mathcal{S}}
+\newcommand{\OOO}{\mathcal{O}}
+
+% caligraphic capital
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bold italic
+
+\newcommand{\xx}{\boldsymbol{x}}
+\newcommand{\yy}{\boldsymbol{y}}
+\newcommand{\zz}{\boldsymbol{z}}
+\newcommand{\uu}{\boldsymbol{u}}
+\newcommand{\vv}{\boldsymbol{v}}
+\newcommand{\ww}{\boldsymbol{w}}
+\newcommand{\ee}{\boldsymbol{e}}
+\newcommand{\aaa}{\boldsymbol{a}}
+
+\newcommand{\aalpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\llambda}{\boldsymbol{\lambda}}
+\newcommand{\mmu}{\boldsymbol{\mu}}
+
+\newcommand{\zzero}{\boldsymbol{0}}
+% bold italic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands like  \det
+
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\len}{\operatorname{len}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\prob}{\operatorname{Pr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Char}{\operatorname{char}}
+\newcommand{\GCD}{\operatorname{GCD}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Rad}{\operatorname{Rad}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\RE}{\operatorname{Re}}
+\newcommand{\IM}{\operatorname{Im}}
+\newcommand{\conv}{\operatorname{conv}}
+\newcommand{\corank}{\operatorname{corank}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\WCC}{\operatorname{WCC}}
+\newcommand{\height}{\operatorname{ht}}
+
+\newcommand{\KR}{\operatorname{KR}}
+\newcommand{\SE}{\operatorname{SE}}
+\newcommand{\DE}{\operatorname{DE}}
+\newcommand{\aff}{\operatorname{aff}}
+\newcommand{\ver}{\operatorname{vert}}
+
+% commands like  \det
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands for frak operatorname like sl
+
+\newcommand{\sL}{\mathfrak{sl}}
+\newcommand{\gl}{\mathfrak{gl}}
+
+% commands for bold operatorname
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands for italic operatorname like SL
+
+\newcommand{\SL}{\textit{SL}}
+\newcommand{\GL}{\textit{GL}}
+
+% commands for bold operatorname
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands for bold operatorname
+
+\newcommand{\abc}{\textbf{abc}}
+
+% commands for bold operatorname
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% misc
+
+\newcommand{\transposed}[1]{\left.^{t}\!#1\right.}
+\newcommand{\restrictedto}[1]{\bigr|_{#1}}
+\newcommand{\rightleq}{\mathrel{\underset{\text{R}}{\leq}}}
+\newcommand{\leftleq}{\mathrel{\underset{\text{L}}{\leq}}}
+\newcommand{\strongleq}{\mathrel{\leq}}
+\newcommand{\sectionX}[1]{\newpage\section*{#1}\addcontentsline{toc}{section}{#1}}
+
+% misc
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% independent 
+\makeatletter
+\DeclareSymbolFont{symbolsC}{U}{txsyc}{m}{n}
+\DeclareMathSymbol{\MYPerp}{\mathrel}{symbolsC}{121}
+\makeatother
+\newcommand{\indep}{\MYPerp}
+% independent 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% misc (command)
+
+\newcommand{\der}{\partial}
+\newcommand{\numof}[1]{\left|#1\right|}
+%\newcommand{\numof}[1]{\#{#1}}
+\newcommand{\defit}[1]{\emph{#1}}
+
+% Ideal
+\newcommand{\ideal}[2]{%
+\left(#1 \mathrel{}\middle|\mathrel{}  #2\right)
+}
+
+% misc (command)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% misc (setting)
+
+\allowdisplaybreaks[3] %denine 0-4 allow
+
+% misc (setting)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\title{数学的帰納法に関するメモ}
+
+\maketitle
+
+
+% Introduction
+\input{p.tex}
+% Main part
+
+% References
+%\bibliography{by-mr,by-arxiv}
+%\bibliographystyle{amsplain-url}
+
+\end{document}
+
