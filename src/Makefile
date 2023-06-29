@@ -12,7 +12,7 @@ pdf: ${TEXFILE}.pdf
 bbl: ${TEXFILE}.bbl
 
 
-${TEXFILE}.dvi: ${TEXFILE}.tex ${TEXFILE}.bbl
+${TEXFILE}.dvi: ${TEXFILE}.tex ${MAINTEXFILES} ${TEXFILE}.bbl
 	${LATEX} ${TEXFILE} && ${LATEX} ${TEXFILE}
 ${TEXFILE}.pdf: ${TEXFILE}.dvi
 	${DVI2PDF} ${TEXFILE}.dvi
