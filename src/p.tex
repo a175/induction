@@ -2,7 +2,56 @@
 % !TeX program = pdfpLaTeX
 
 \section{通常の数学的帰納法によるもの}
+\subsection{数学的帰納法は通常は用いないもの}
+\begin{prop}
+  $n\in\NN$に対し, 
+  \begin{align*}
+    \sum_{i=0}^{n}i=\frac{n(n+1)}{2}.
+  \end{align*}
+\end{prop}
+\begin{proof*}
+  $0=\frac{0(0+1)}{2}$である.
+  また, $\frac{n(n+1)}{2}=\frac{(n-1)n}{2}+n$であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof*}
+\begin{proof}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=0}^{n}i=\frac{n(n+1)}{2}.
+  \end{align*}
+  このとき, 全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
 
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \sum_{i=0}^{0}i&=0,\\
+    \frac{0(0+1)}{2}&=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=0}^{n-1}i=\frac{(n-1)n}{2}$であるので,
+  \begin{align*}
+    \sum_{i=0}^{n}i&=n+\sum_{i=0}^{n-1}i\\
+    &=n+\frac{(n-1)n}{2}\\
+    &=\frac{2n+(n-1)n}{2}\\
+    &=\frac{2n+n^2-n}{2}\\
+    &=\frac{n^2+n}{2}\\
+    &=\frac{n(n+1)}{2}.
+  \end{align*}
+\end{proof}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=0}^{n}i&=\frac{\sum_{i=0}^{n}i + \sum_{i=0}^{n}i}{2}\\
+    &=\frac{\sum_{i=0}^{n}i + \sum_{i=0}^{n}(n-i)}{2}\\
+    &=\frac{\sum_{i=0}^{n}(i + n-i)}{2}\\
+    &=\frac{\sum_{i=0}^{n}n}{2}\\
+    &=\frac{n\sum_{i=0}^{n}1}{2}\\
+    &=\frac{n(n+1)}{2}.
+  \end{align*}
+\end{rem}
 
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
@@ -10,9 +59,6 @@
 
 \section{Todo}
 
-\begin{prop}
-  $n\in\NN$に対し, $\sum_{i=0}^{n}i=\frac{n(n+1)}{2}$.
-\end{prop}
 
 \begin{prop}
   $n\in\NN$に対し, $\sum_{i=0}^{n}2i=n(n+1)$.

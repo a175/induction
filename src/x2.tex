@@ -13,6 +13,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % theorems
+\newenvironment{proof*}{\begin{proof}[証明]}{\end{proof}}
+
 \theoremstyle{plain}
 
 \newtheorem{thm}{Theorem}[section]
@@ -28,9 +30,11 @@
 \theoremstyle{remark}
 
 \newtheorem{remark}[thm]{Remark}
-\newtheorem{rem}[thm]{Remark}
 \newtheorem{example}[thm]{Example}
 \newtheorem{exercise}[thm]{Exercise}
+
+\newtheorem{rem}{Remark}[thm]
+
 
 \newtheorem*{acknowledgment}{Acknowledgment}
 \newtheorem*{ackn}{Acknowledgment}
