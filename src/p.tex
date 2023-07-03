@@ -4,10 +4,8 @@
 \section{通常の数学的帰納法によるもの}
 \subsection{数学的帰納法は通常は用いないもの}
 \begin{prop}
-  $n\in\NN$に対し, 
-  \begin{align*}
-    \sum_{i=0}^{n}i=\frac{n(n+1)}{2}.
-  \end{align*}
+  $\forall n\in\NN$,
+  $\sum_{i=0}^{n}i=\frac{n(n+1)}{2}$.
 \end{prop}
 \begin{proof*}
   $0=\frac{0(0+1)}{2}$である.
@@ -39,6 +37,7 @@
     &=\frac{2n+n^2-n}{2}\\
     &=\frac{n^2+n}{2}\\
     &=\frac{n(n+1)}{2}.
+    \qedhere
   \end{align*}
 \end{proof}
 \begin{rem}
@@ -54,10 +53,8 @@
 \end{rem}
 
 \begin{prop}
-  $n\in\NN$に対し,
-  \begin{align*}
-    \sum_{i=0}^{n}2i=n(n+1).
-  \end{align*}
+  $\forall n\in\NN$,
+  $\sum_{i=0}^{n}2i=n(n+1).$
 \end{prop}
 \begin{proof*}
   $2\cdot 0=0=0(0+1)$である.
@@ -90,6 +87,7 @@
     &=2n+n^2-n\\
     &=n^2+n\\
     &=n(n+1).
+    \qedhere
   \end{align*}
 \end{proof}
 
