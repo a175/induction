@@ -8,13 +8,12 @@
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{braket}
+
 %\usepackage{showkeys}
 \AtBeginDvi{\special{pdf:tounicode EUC-UCS2}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % theorems
-\newenvironment{proof*}{\begin{proof}[証明]}{\end{proof}}
-
 \theoremstyle{plain}
 
 \newtheorem{thm}{Theorem}%[section]
@@ -33,7 +32,6 @@
 \newtheorem{example}[thm]{Example}
 \newtheorem{exercise}[thm]{Exercise}
 
-\newtheorem{rem}{Remark}[thm]
 
 
 \newtheorem*{acknowledgment}{Acknowledgment}
@@ -49,6 +47,11 @@
 \newtheorem{notation}[thm]{Notation}
 \newtheorem{conjecture}[thm]{Conjecture}
 \newtheorem{conj}[thm]{Conjecture}
+
+
+\theoremstyle{definition}
+\newtheorem{rem}{注}[thm]
+\newtheorem{Proof}[rem]{証明}
 
 
 % Cref
@@ -279,9 +282,14 @@
 
 
 % Introduction
+\newenvironment{proof*}{\begin{Proof}}{\end{Proof}}
+\newenvironment{proof**}{\begin{Proof}}{\end{Proof}}
 \input{p.tex}
 % Main part
 
+%\renewenvironment{proof*}{\begin{mycomment}}{\end{mycomment}}
+%\renewenvironment{proof**}{\begin{mycomment}}{\end{mycomment}}
+%\input{p.tex}
 % References
 %\bibliography{by-mr,by-arxiv}
 %\bibliographystyle{amsplain-url}
