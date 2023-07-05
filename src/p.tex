@@ -149,6 +149,78 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
   \end{align*}
 \end{rem}
 
+\begin{prop}
+  $\forall n\in\NN$, $\sum_{i=0}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$.
+\end{prop}
+\begin{proof**}
+  $0^2=0=\frac{0\cdot 1\cdot 1}{6}$である.
+  また, $\frac{(n-1)n(2n-1)}{6}+n^2=\frac{2n^3-3n^2+n+6n^2}{6}=\frac{2n^3+3n^2+n}{6}=\frac{n(n+1)(2n+1)}{6}$であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=0}^{n}i^2=\frac{n(n+1)(2n+1)}{6}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \sum_{i=1}^{1}i^2&=0^2=0,\\
+    \frac{0(0+1)(2\cdot 0+1)}{6}&=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=0}^{n-1}i^2=\frac{(n-1)n(2n-1)}{6}$であるので,
+  \begin{align*}
+    \sum_{i=1}^{n}i^2&=n^2+\sum_{i=0}^{n-1}i^2\\
+    &=\frac{6n^2+2n^3-3n^2+n}{6}\\
+    &=\frac{2n^3+3n^2+n}{6}\\
+    &=\frac{n(n+1)(2n+1)}{6}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    S&=\sum_{i=0}^n i^2\\
+    T&=\sum_{i=1}^{n}(i^3-(i-1)^3)
+  \end{align*}
+  とする.
+  このとき,
+  \begin{align*}
+    T&=\sum_{i=1}^{n}i^3-\sum_{i=1}^n (i-1)^3\\
+    &=\sum_{i=1}^{n}i^3-\sum_{i=0}^{n-1} i^3)\\
+    &=(n^3+\sum_{i=1}^{n-1}i^3)-(\sum_{i=1}^{n-1} i^3)+0^3)\\
+    &=n^3.
+  \end{align*}
+  一方次のようにも計算できる:
+  \begin{align*}
+    T
+    &=\sum_{i=1}^{n}(i^3- (i^3-3i^2+3i-1))\\
+    &=\sum_{i=1}^{n}-(-3i^2+3i-1)\\
+    &=3\sum_{i=1}^{n}i^2-3\sum_{i=1}^{n}i+\sum_{i=1}^{n}1\\
+    &=3S-3\frac{n(n+1)}{2}+n.
+  \end{align*}
+  したがって,
+  \begin{align*}
+    n^3&=3S-3\frac{n(n+1)}{2}+n\\
+    3S&=n^3+3\frac{n(n+1)}{2}-n\\
+    &=\frac{2n^3+3n(n+1)-2n}{2}\\
+    &=\frac{n(2n^2+3(n+1)-2)}{2}\\
+    &=\frac{n(2n^2+3n-1)}{2}\\
+    &=\frac{n(n+1)(2n-1)}{2}\\
+    S&=\frac{n(n+1)(2n-1)}{6}.
+  \end{align*}
+  
+\end{rem}
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
@@ -158,9 +230,6 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
 
 
 
-\begin{prop}
-  $n\in\NN$に対し, $\sum_{i=0}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$.
-\end{prop}
 
 \begin{prop}
   $n\in\NN$に対し, $\sum_{i=0}^{n}(2i+1)^2=\frac{n(n+1)(2n+1)}{3}$.
