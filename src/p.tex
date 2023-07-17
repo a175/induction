@@ -629,6 +629,78 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
     &=\frac{n(n+1)(n+2)}{3}.
   \end{align*}
 \end{rem}
+
+\begin{prop}
+  $\forall k\in\NN$,
+  $\forall n\in\NN$, $\sum_{i=0}^n \binom{i+k}{k}=\binom{n+k+1}{k+1}$
+\end{prop}
+
+\begin{proof**}
+  $k\in\NN$とする.
+  このとき,
+  $\binom{k}{k}=1=\binom{k+1}{k+1}$である.
+  また,
+  $\sum_{i=0}^n \binom{i+k}{k}-\sum_{i=0}^{n-1} \binom{i+k}{k}=\binom{n+k}{k}$,
+  $\binom{n+k+1}{k+1}-\binom{n-1+k+1}{k+1}=\binom{n+k+1}{k+1}-\binom{n+k}{k+1}=\binom{n+k}{k}+\binom{n+k}{k+1}-\binom{n+k}{k+1}=\binom{n+k}{k}$
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $k\in \NN$とする.
+  
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=0}^n \binom{i+k}{k}=\binom{n+k+1}{k+1}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \sum_{i=0}^0 \binom{i+k}{k}&=\binom{k}{k}=1\\
+    \binom{0+k+1}{k+1}&=\binom{k+1}{k+1}=1.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=0}^{n-1} \binom{i+k}{k}=\binom{n+k}{k+1}$であるので,
+  \begin{align*}
+    \sum_{i=0}^n \binom{i+k}{k}
+    &=\binom{n+k}{k} +\sum_{i=0}^{n-1} \binom{i+k}{k}\\
+    &=\binom{n+k}{k} + \binom{n+k}{k+1}\\
+    &=\binom{n+k}{k} + \binom{n+k}{k+1}\\
+    &=\binom{n+k+1}{k+1}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示すことができる:
+  \begin{align*}
+    X&=\Set{(t_1\ldots,t_k,t_{k+1})|1\leq t_1<\cdots < t_k<t_{k+1} \leq  n+k+1}\\
+    X_i&=\Set{(t_1\ldots,t_{k},i)|1\leq t_1<\cdots < t_k <k+1+i }
+  \end{align*}
+  とおく. このとき,
+  \begin{align*}
+    \coprod_{i=0}^{n}X_i = X
+  \end{align*}
+  であり,
+  \begin{align*}
+    \numof{X}&=\binom{n+k+1}{k+1}\\
+    \numof{X_i}&=\binom{n+k}{k}
+  \end{align*}
+  であるので,
+  \begin{align*}
+    \sum_{i=0}^{n}\binom{n+k}{k}=\sum_{i=0}^{n}\numof{X_i}
+    =\numof{\coprod_{i=0}^{n}X_i}= \numof{X}=\binom{n+k+1}{k+1}.
+  \end{align*}
+  
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
