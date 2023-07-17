@@ -57,6 +57,29 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
   \end{align*}
 \end{rem}
 
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示すこともできる:
+  \begin{align*}
+    X&=\Set{(t_1,t_2)|0\leq t_1<t_2 \leq  n}\\
+    X_i&=\Set{(t_1,i)|0\leq t_1<i }
+  \end{align*}
+  とおく. このとき,
+  \begin{align*}
+    \coprod_{i=0}^{n}X_i = X
+  \end{align*}
+  であり,
+  \begin{align*}
+    \numof{X}&=\binom{n+1}{2}=\frac{n(n+1)}{2}\\
+    \numof{X_i}&=i
+  \end{align*}
+  であるので,
+  \begin{align*}
+    \sum_{i=0}^{n}i=\frac{n(n+1)}{2}.
+  \end{align*}
+  
+\end{rem}
+
+
 \begin{prop}
   $\forall n\in\NN$,
   $\sum_{i=0}^{n}2i=n(n+1).$
@@ -678,7 +701,7 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
 \end{proof*}
 
 \begin{rem}
-  数学的帰納法を用いず, 以下のように示すことができる:
+  数学的帰納法を用いず, 以下のように示すこともできる:
   \begin{align*}
     X&=\Set{(t_1\ldots,t_k,t_{k+1})|1\leq t_1<\cdots < t_k<t_{k+1} \leq  n+k+1}\\
     X_i&=\Set{(t_1\ldots,t_{k},i)|1\leq t_1<\cdots < t_k <k+1+i }
