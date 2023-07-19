@@ -681,6 +681,71 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
 この一般化である.
 \end{rem}
 
+
+\begin{prop}
+  \label{p:20230719}
+  $\forall n\in \ZZ_{>0}$, $\sum_{i=1}^n (2i-1)2i=\frac{n(n+1)(4n-1)}{3}$.
+\end{prop}
+\begin{proof**}
+  $1\cdot 2=2=\frac{1(1+1)(4-1)}{3}$である.
+  また,
+  $\sum_{i=1}^n (2i-1)2i-\sum_{i=1}^{n-1} (2i-1)2i=(2n-1)2n$,
+  $\frac{n(n+1)(4n-1)}{3}-\frac{(n-1)n(4n-5)}{3}=\frac{n(n+1)(4n-1)-(n-1)n(4n-5)}{3}=
+  \frac{n((n+1)(4n-1)-(n-1)(4n-5))}{3}=
+  \frac{n(4n^2+3n-1-4n^2+9n-5}{3}=
+  \frac{n(12n-6)}{3}=
+  \frac{6n(2n-1)}{3}
+  2n(2n-1)$
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n (2i-1)2i=\frac{n(n+1)(4n-1)}{3}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+    \begin{align*}
+      1\cdot 2&=2,\\
+      \frac{1\cdot 2\cdot 3}{3}&=2.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1} (2i-1)2i=\frac{(n-1)n(4n-5)}{3}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n (2i-1)2i
+    &=(2n-1)2n+\sum_{i=1}^{n-1} (2i-1)2i\\
+    &=(2n-1)2n+\frac{(n-1)n(4n-5)}{3}\\
+    &=\frac{(2n-1)6n+(n-1)n(4n-5)}{3}\\
+    &=\frac{n((2n-1)6+(n-1)(4n-5))}{3}\\
+    &=\frac{n(12n-6+4n^2-9n+5}{3}\\
+    &=\frac{n(4n^2+3n-1}{3}\\
+    &=\frac{n(n+1)(4n+1)}{3}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \cref{p:20230630,p:20230705}をみとめ,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n (2i-1)2i
+    &=\sum_{i=1}^n (4i^2-2i)\\
+    &=4\sum_{i=1}^n i^2-2\sum_{i=1}^ni)\\
+    &=4\frac{n(n+1)(2n+1)}{6}-2\frac{n(n+1)}{2}\\
+    &=\frac{2n(n+1)(2n+1)}{3}-n(n+1)\\
+    &=\frac{2n(n+1)(2n+1)-3n(n+1)}{3}\\
+    &=\frac{n(n+1)(2(2n+1)-3)}{3}\\
+    &=\frac{n(n+1)(42n+1)}{3}.
+  \end{align*}
+\end{rem}
+
+
 \begin{prop}
   \label{p:20230717}
   $\forall k\in\NN$,
@@ -842,9 +907,6 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
 
 
 
-\begin{prop}
-  $\sum_{i=1}^n (2i-1)2i=\frac{n(n+1)(4n-1)}{3}$
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^{2n}\frac{(-1)^i}{i}=\sum_{i=1}^n\frac{1}{n+i}$
