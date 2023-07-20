@@ -3,6 +3,11 @@
 \section{記号}
 $\NN$は非負整数全体のなす集合,
 $\ZZ_{>0}$は正の実数全体のなす集合.
+
+$\binom{x}{n}$は二項係数, つまり,
+$x\in\RR$, $n\in \NN$とするとき,
+$\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
+
 \section{通常の数学的帰納法によるもの}
 \subsection{整数や整式の等式に関するもの}
 \subsubsection{和に関するもの}
@@ -892,6 +897,80 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
   \end{align*}
 \end{rem}
 
+
+
+\begin{prop}
+  \label{p:20230720}
+  $\forall x\neq 0$,
+  $\forall n\in\NN$,
+  $\sum_{i=0}^{n}x^i=\frac{1-x^{n+1}}{1-x}$.
+\end{prop}
+
+\begin{proof**}
+  $m\neq 0$とする.
+  このとき,
+  $x^0=1\frac{x-1}{x-1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=0}^{n}x^i-\sum_{i=0}^{n-1}x^i&=x^n\\
+    \frac{1-x^{n+1}}{1-x}-\frac{1-x^{n}}{1-x}
+    &=\frac{-x^{n+1}+x^n}{1-x}
+    =\frac{x^n(-x+1)}{1-x}
+    =x^n
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $x\neq 0$とする.
+  
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=0}^{n}x^i=\frac{1-x^{n+1}}{1-x}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \sum_{i=0}^0 x^i&=1,\\
+    \frac{1-x^1}{1-x}&=1.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$    \sum_{i=0}^{n-1}x^i=\frac{1-x^{n}}{1-x}$であるので,
+  \begin{align*}
+    \sum_{i=0}^{n}x^i
+    &=x^n+\sum_{i=0}^{n-1}x^i\\
+    &=x^n+\frac{1-x^{n}}{1-x}\\
+    &=\frac{x^n(1-x)+1-x^{n}}{1-x}\\
+    &=\frac{x^n-x^{n+1}+1-x^{n}}{1-x}\\
+    &=\frac{-x^{n+1}+1}{1-x}\\
+    &=\frac{1-x^{n+1}}{1-x}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $x\neq 1$とし,
+  $S=\sum_{i=0}^{n}x^i$とおく
+  \begin{align*}
+    (1-x)S
+    &=\sum_{i=0}^{n}x^i-x\sum_{i=0}^{n}x^i\\
+    &=\sum_{i=0}^{n}x^i-\sum_{i=0}^{n}x^{i+1}\\
+    &=\sum_{i=0}^{n}x^i-\sum_{i=1}^{n+1}x^{i}\\
+    &=x^0-x^{n+1}+\sum_{i=1}^{n}x^i-\sum_{i=1}^{n}x^{i}\\
+    &=1-x^{n+1}.\\
+    S&=\frac{1-x^{n+1}}{1-x}.
+  \end{align*}
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
@@ -906,9 +985,6 @@ $\ZZ_{>0}$は正の実数全体のなす集合.
 
 
 
-\begin{prop}
-とうひ級数のわ
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^n ix^i=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}$.
