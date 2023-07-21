@@ -907,9 +907,9 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \end{prop}
 
 \begin{proof**}
-  $m\neq 0$とする.
+  $x\neq 0$とする.
   このとき,
-  $x^0=1\frac{x-1}{x-1}$である.
+  $x^0=1=\frac{x-1}{x-1}$である.
   また,
   \begin{align*}
     \sum_{i=0}^{n}x^i-\sum_{i=0}^{n-1}x^i&=x^n\\
@@ -958,7 +958,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \begin{rem}
   数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
   $x\neq 1$とし,
-  $S=\sum_{i=0}^{n}x^i$とおく
+  $S=\sum_{i=0}^{n}x^i$とおく.
   \begin{align*}
     (1-x)S
     &=\sum_{i=0}^{n}x^i-x\sum_{i=0}^{n}x^i\\
@@ -970,7 +970,110 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+\begin{prop}
+  \label{p:20230721}
+  $\forall x\neq 0$,
+  $\forall n\in\NN$,
+  $\sum_{i=0}^n ix^i=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}$.
+\end{prop}
 
+\begin{proof**}
+  $x\neq 0$とする.
+  このとき,
+  $x^0=1$.
+  $\frac{0x^{2}-x^{1}+x}{(x-1)^2}=0$である.
+  また,
+  \begin{align*}
+    \sum_{i=0}^{n}ix^i-\sum_{i=0}^{n-1}ix^i&=nx^n\\
+    \frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}-\frac{(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}
+    &=
+    \frac{nx^{n+2}-(n+1)x^{n+1}+x-((n-1)x^{n+1}-nx^{n}+x)}{(x-1)^2}\\
+    &=
+    \frac{nx^{n+2}-(n+1)x^{n+1}+x-(n-1)x^{n+1}+nx^{n}-x}{(x-1)^2}\\
+    &=
+    \frac{nx^{n+2}-2nx^{n+1}+nx^{n}}{(x-1)^2}\\
+    &=
+    \frac{nx^{n}(x^2-2x+1)}{(x-1)^2}\\
+    &=nx^n
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+
+\begin{proof*}
+  $x\neq 0$とする.
+  
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=0}^n ix^i=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \sum_{i=0}^0 ix^i&=0,\\
+    \frac{0x^{0+2}-(0+1)x^{0+1}+x}{(x-1)^2}&=\frac{0-x+x}{(x-1)^2}=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=0}^{n-1} ix^i=\frac{(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}$であるので,
+  \begin{align*}
+    \sum_{i=0}^n ix^i
+    &=nx^n+\sum_{i=0}^{n-1} ix^i\\
+    &=nx^n+\frac{(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}\\
+    &=\frac{nx^n(x-1)^2+(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}\\
+    &=\frac{nx^n(x^2-2x+1)+(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}\\
+    &=\frac{nx^{n+2}-2nx^{n+1}+nx^n+(n-1)x^{n+1}-nx^{n}+x}{(x-1)^2}\\
+    &=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \cref{p:20230720}を認めて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $x\neq 1$とし,
+  $S=\sum_{i=0}^{n}ix^i$とおく.
+  \begin{align*}
+    (1-x)S
+    &=\sum_{i=0}^{n}ix^i-x\sum_{i=0}^{n}ix^i\\
+    &=\sum_{i=0}^{n}ix^i-\sum_{i=0}^{n}ix^{i+1}\\
+    &=\sum_{i=0}^{n}ix^i-\sum_{i=1}^{n+1}(i-1)x^{i}\\
+    &=0x^0-nx^{n+1}+\sum_{i=1}^{n}ix^i-\sum_{i=1}^{n}(i-1)x^{i}\\
+    &=-nx^{n+1}+\sum_{i=1}^{n}(ix^i-(i-1)x^{i})\\
+    &=-nx^{n+1}+\sum_{i=1}^{n}x^{i}\\
+    &=-nx^{n+1}-1+\sum_{i=0}^{n}x^{i}\\
+    &=-nx^{n+1}-1+\frac{x^{n+1}-1}{x-1}\\
+    &=\frac{-(nx^{n+1}+1)(x-1)+x^{n+1}-1}{x-1}\\
+    &=\frac{-nx^{n+2}-x+nx^{n+1}+1+x^{n+1}-1}{x-1}\\
+    &=\frac{-nx^{n+2}+(n+1)x^{n+1}-x}{x-1}.\\
+    S&=\frac{-nx^{n+2}+(n+1)x^{n+1}-x}{(1-x)(x-1)}\\
+    &=\frac{nx^{n+2}-(n+1)x^{n+1}+x)}{(1-x)^2}.
+  \end{align*}
+\end{rem}
+\begin{rem}
+  \cref{p:20230720}を認めて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $x\neq 1$とし,
+  $S(x)=\sum_{i=0}^{n}x^i$とおく.
+  \begin{align*}
+    S(x)&=\sum_{i=0}^{n}x^i.&
+    S(x)&=\frac{x^{n+1}-1}{x-1}.\\
+    \frac{d}{dx}S(x)&=\sum_{i=0}^{n}ix^{i-1}.&
+    \frac{d}{dx}S(x)
+    &=\frac{(n+1)x^{n}(x-1)-(x^{n+1}-1)}{(x-1)^2}\\
+    &&&=\frac{(n+1)(x^{n+1}-x^{n})-x^{n+1}+1}{(x-1)^2}\\
+    &&&=\frac{nx^{n+1}-(n+1)x^{n}+1}{(x-1)^2}.\\
+    x\frac{d}{dx}S(x)&=\sum_{i=0}^{n}ix^i.&
+    x\frac{d}{dx}S(x)
+    &=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}.
+  \end{align*}
+\end{rem}
+    
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
@@ -985,10 +1088,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-
-\begin{prop}
-  $\sum_{i=1}^n ix^i=\frac{nx^{n+2}-(n+1)x^{n+1}+x}{(x-1)^2}$.
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^n (3i-2)2^{i-1}=(3n-5)2^n+5$
