@@ -1160,7 +1160,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   また,
   \begin{align*}
     \frac{(2n)!!}{(2n-2)!!}&=2n\\
-    \frac{2^nn!}{2^{n-1}(n-1)!}&=2n
+    \frac{2^nn!}{2^{n-1}(n-1)!}&=\frac{2^n}{2^{n-1}}\frac{n!}{(n-1)!}=2n
   \end{align*}
   であるので,
   $n$に関する数学的帰納法により示せる.
@@ -1191,7 +1191,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
     &=2n(2n-2)!!\\
     &=2n2^{n-1}(n-1)!\\
     &=2^{n}n(n-1)!\\
-    =2^nn!
+    &=2^nn!
     .\qedhere
   \end{align*}
 \end{proof*}
