@@ -1208,6 +1208,123 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+
+\begin{prop}
+  \label{p:20230724}
+  $\forall n\in\NN$,
+  $(2n+1)!!=\frac{(2n+1)!}{2^nn!}$.
+\end{prop}
+\begin{proof**}
+  $1!!=1=\frac{1}{2^0\cdot 1!}$である.
+  また,
+  \begin{align*}
+    \frac{(2n+1)!!}{(2n-1)!!}&=2n+1\\
+    \frac{\frac{(2n+1)!}{2^nn!}}{\frac{(2n-1)!}{2^{n-1}(n-1)!}}
+    &=
+    \frac{(2n+1)!\cdot 2^{n-1}(n-1)!}{2^nn! \cdot (2n-1)!}
+    =\frac{(2n+1)!}{(2n-1)!}\frac{(n-1)!}{n!}\frac{2^{n-1}}{2^n}
+    =\frac{2n(2n+1)\cdot 1\cdot 1}{1 \cdot 2 \cdot n}=2n+1
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    (2n+1)!!=\frac{(2n+1)!}{2^nn!}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    1!!&=1.\\
+    \frac{(0+1)!}{2^00!}&=1.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$(2n-1)!!=\frac{(2n-1)!}{2^{n-1}(n-1)!}$であるので,
+  \begin{align*}
+    (2n+1)!!
+    &=(2n+1)\cdot (2n-1)!!\\
+    &=(2n+1)\cdot \frac{(2n-1)!}{2^{n-1}(n-1)!}\\
+    &=\frac{(2n+1)2n}{2n}\cdot \frac{(2n-1)!}{2^{n-1}(n-1)!}\\
+    &=\frac{(2n+1)!}{2^{n}n!}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  \Cref{p:20230723}をみとめて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    (2n+1)!!=\frac{(2n+1)!}{(2n)!!}=\frac{(2n+1)!}{2^nn!}.
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230725}
+  $\forall n\in\ZZ_{>0}$,
+  $\frac{(2n)!}{n!}=2^n(2n-1)!!$.
+\end{prop}
+\begin{proof**}
+  $\frac{2!}{1!}=2=2^11!$である.
+  また,
+  \begin{align*}
+    \frac{\frac{(2n)!}{n!}}{\frac{(2n-2)!}{(n-1)!}}
+    &=\frac{(2n)!(n-1)!}{(2n-2)!n!}
+    =\frac{2n\cdot 2n-1}{n}=2(2n-1)\\
+    \frac{2^n(2n-1)!!}{2^{n-1}(2n-3)!!}
+    &=2(2n-1)
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \frac{(2n)!}{n!}=2^n(2n-1)!!.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{2!}{1!}&=2,\\
+    2^11!&=2.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\frac{(2(n-1))!}{(n-1)!}=2^{n-1}(2n-3)!!$であるので,
+  \begin{align*}
+    \frac{(2n)!}{n!}
+    &=\frac{2n\cdot (2n-1)}{n}\frac{(2n-2)!}{(n-1)!}\\
+    &=2(2n-1)\frac{(2(n-1))!}{(n-1)!}\\
+    &=2(2n-1)2^{n-1}(2n-3)!!
+    &=2^n(2n-1)!!
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \Cref{p:20230723}をみとめて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    n!\cdot 2^n (2n-1)!!
+    &=2^n n!\cdot (2n-1)!!
+    =(2n)!! (2n-1)!!
+    =(2n)!.\\
+    2^n (2n-1)!!&=\frac{(2n)!}{n!}.
+  \end{align*}
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
@@ -1216,13 +1333,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-  $(2n+1)!!=\frac{(2n+1)!}{2^nn!}$
-\end{prop}
 
-\begin{prop}
-  $\frac{2n!}{n!}=2^n(2n-1)!!$
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^{2n}\frac{(-1)^i}{i}=\sum_{i=1}^n\frac{1}{n+i}$
