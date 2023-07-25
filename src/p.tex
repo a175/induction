@@ -1294,7 +1294,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   数学的帰納法で示す.
 
   \paragraph{Base Case:}
-  $P(0)$が成り立つことは, 以下から明らか:
+  $P(1)$が成り立つことは, 以下から明らか:
   \begin{align*}
     \frac{2!}{1!}&=2,\\
     2^11!&=2.
@@ -1325,6 +1325,64 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \end{rem}
 
 
+\subsection{有理式などの和に関するもの}
+\begin{prop}
+  \label{p:20230726}
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^n\frac{1}{n+i}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1}-\frac{1}{2}=\frac{1}{2}=frac{1}{1+1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}-\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}
+    &=\frac{1}{2n-1}-\frac{1}{2n}\\
+    &=\frac{2n-(2n-1)}{2n(2n-1)}\\
+    &=\frac{1}{2n(2n-1)}\\
+    \sum_{i=1}^n\frac{1}{n+i}-\sum_{i=1}^{n-1}\frac{1}{n-1+i}
+    &=\sum_{i=1}^n\frac{1}{n+i}-\sum_{i=0}^{n-2}\frac{1}{n+i}\\
+    &=(\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{n-2}\frac{1}{n+i})
+    -(\frac{1}{n}+\sum_{i=0}^{n-2}\frac{1}{n+i})\\
+    &=\frac{1}{2n}+\frac{1}{2n-1}-\frac{1}{n}\\
+    &=\frac{2n-1+2n-2(2n-1)}{2n(2n-1)}\\
+    &=\frac{1}{2n(2n-1)}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^n\frac{1}{n+i}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{1}-\frac{1}{2}&=\frac{1}{2}.\\
+    \frac{1}{1+1}&=\frac{1}{2}.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^{n-1}\frac{1}{n+i-1}$であるので,
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}\\
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{n-1}\frac{1}{n+i-1}\\
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=0}^{n-2}\frac{1}{n+i}\\
+    &=-\frac{1}{2n}+\sum_{i=0}^{n-1}\frac{1}{n+i}\\
+    &=-\frac{1}{2n}+\frac{1}{n}+\sum_{i=1}^{n-1}\frac{1}{n+i}\\
+    &=\frac{1}{2n}+\sum_{i=1}^{n-1}\frac{1}{n+i}\\
+    &=\sum_{i=1}^{n}\frac{1}{n+i}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
@@ -1335,9 +1393,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-  $\sum_{i=1}^{2n}\frac{(-1)^i}{i}=\sum_{i=1}^n\frac{1}{n+i}$
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^n\left( \frac{1}{2i-1}-\frac{1}{2i}\right)=\sum_{i=n+1}^{2n}\frac{1}{i}$.
@@ -1673,6 +1728,11 @@ $\frac{d^n}{dx^n}(fg)=\sum_{i=0}^n\binom{n}{i}\frac{d^i}{dx^i}f \cdot \frac{d^{n
   まっこーれいの定理.
   % 2.3.9
 \end{prop}
+
+\begin{prop}
+  GBによるた変数割り算アルゴリズムの標準形の存在.
+\end{prop}
+
 
 % ひび多面体
 \begin{prop}
