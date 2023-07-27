@@ -1332,7 +1332,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   $\sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^n\frac{1}{n+i}$.
 \end{prop}
 \begin{proof**}
-  $\frac{1}{1}-\frac{1}{2}=\frac{1}{2}=frac{1}{1+1}$である.
+  $\frac{1}{1}-\frac{1}{2}=\frac{1}{2}=\frac{1}{1+1}$である.
   また,
   \begin{align*}
     \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}-\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}
@@ -1382,25 +1382,74 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{proof*}
 
+\begin{prop}
+  \label{p:20230727}
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1(2)}=\frac{1}{2}=\frac{1}{1+1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}-\sum_{i=1}^{n-1}\frac{1}{i(i+1)}
+    &=\frac{1}{n(n+1)}\\
+    \frac{n}{n+1}-\frac{n-1}{n}
+    &=\frac{n^2-(n+1)(n-1)}{n(n+1)}
+    =\frac{n^2-(n^2-1)}{n(n+1)}
+    =\frac{1}{n(n+1)}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{1(1+1)}&=\frac{1}{2}.\\
+    \frac{1}{1+1}&=\frac{1}{2}.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{1}{i(i+1)}=\frac{n-1}{n}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\frac{1}{n(n+1)}+\sum_{i=1}^{n-1}\frac{1}{i(i+1)}\\
+    &=\frac{1}{n(n+1)}+\frac{n-1}{n}\\
+    &=\frac{1+(n+1)(n-1)}{n(n+1)}\\
+    &=\frac{1+n^2-1}{n(n+1)}\\
+    &=\frac{n^2}{n(n+1)}\\
+    &=\frac{n}{(n+1)}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\sum_{i=1}^n(\frac{1}{i}-\frac{1}{i+1})\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=1}^n\frac{1}{i+1}\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=2}^{n+1}\frac{1}{i}\\
+    &=(1+\sum_{i=2}^n\frac{1}{i})-(\frac{1}{n+1}+\sum_{i=2}^{n}\frac{1}{i})\\
+    &=1-\frac{1}{n+1}\\
+    &=\frac{n}{n+1}.
+  \end{align*}
+\end{rem}
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
 \section{Todo}
 
-
-
-
-
-
-
-\begin{prop}
-  $\sum_{i=1}^n\left( \frac{1}{2i-1}-\frac{1}{2i}\right)=\sum_{i=n+1}^{2n}\frac{1}{i}$.
-\end{prop}
-
-\begin{prop}
-  $\sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}$.
-\end{prop}
 
 \begin{prop}
   $\sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)$.
@@ -1769,6 +1818,14 @@ $\bigcap_{Y\colon \text{凸, $X\subset Y$}}Y=\Set{\sum t_i x_i|t_i\geq 0, \sum t
   %1.6.11
   $char F=p$, $f\in F[x]$がきやくなら,
   ぶんり多項式$h$をつかって$f(x)=h(x^{p^e})$とかける.
+\end{prop}
+
+\begin{prop}
+  %1.7.9
+  $E/F$有限次拡大.
+  $G$を$E$の$F$上の自己同型群とする.
+  $E$は$F[X]$のある分離多項式$f$の最小分解体であるなら,
+  $E^G=F$.
 \end{prop}
 
 
