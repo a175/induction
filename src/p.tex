@@ -1445,15 +1445,269 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+\begin{prop}
+  \label{p:20230728}
+  $\forall m \in \ZZ_{>0}$,
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)$.
+\end{prop}
+\begin{proof**}
+  \begin{align*}
+    \prod_{k=0}^{m}\frac{1}{1+k}&=\frac{1}{(m+1)!}\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{1+k}\right)
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\left(\frac{m+1}{(m+1)!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\frac{m}{(1+m)!}=\frac{1}{(m+1)!}
+  \end{align*}
+  である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    -\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}
+    &=\prod_{k=0}^{m}\frac{1}{n+k}\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)
+    -\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right)
+    &=\frac{1}{m}\left(-\prod_{k=1}^m\frac{1}{n+k}+\prod_{k=1}^m\frac{1}{n-1+k}\right)\\
+    &=\frac{1}{m}\left(\frac{-n+n+m}{\prod_{k=0}^m n+k}\right)\\
+    &=\frac{1}{m}\frac{m}{(n+m)!}\\
+    &=\frac{1}{(n+m)!}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $\forall m \in \ZZ_{>0}$とする.
+  $P(n)$を次の命題とする:
+  \begin{align*}
+   \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right).
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \prod_{k=0}^{m}\frac{1}{1+k}&=\frac{1}{(m+1)!}.\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{1+k}\right)
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\left(\frac{m+1}{(m+1)!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\frac{m}{(1+m)!}=\frac{1}{(m+1)!}.
+  \end{align*}
+  
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right).$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=\prod_{k=0}^{m}\frac{1}{n+k}+\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}\\
+    &=\prod_{k=0}^{m}\frac{1}{n+k}+\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right)\\
+    &=\frac{1}{\prod_{k=0}^{m} (n+k)}+\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{\prod_{k=1}^m(n-1+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{1}{\prod_{k=1}^m(n-1+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{1}{\prod_{k=0}^{m-1}(n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{n+m}{\prod_{k=0}^{m}(n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m-(n+m)}{\prod_{k=0}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{n}{\prod_{k=0}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{\prod_{k=1}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{proof**}
+  \Cref{p:20230727}から,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\frac{n}{n+1}\\
+    \frac{1}{1}\left(\frac{1}{1!}-\prod_{k=1}^1\frac{1}{n+k}\right)
+    &=
+    \left(1-\frac{1}{n+1}\right)
+    =\frac{n}{n+1}
+  \end{align*}
+  である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=
+    \sum_{i=1}^n\frac{1}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m+i-i}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{m+i}{\prod_{k=0}^{m}(i+k)}-\frac{i}{\prod_{k=0}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{\prod_{k=1}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=1}^{m}(i+k)}.\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=1}^{m}(i-1+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m}\frac{1}{\prod_{k=0}^{m-1}(1+k)}\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{\prod_{k=0}^{m-1}(1+k)}\right)\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m!}\right)
+  \end{align*}
+  であるが,
+  \begin{align*}
+    &\frac{1}{m}\left(
+    \frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+    -\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}\right)
+    -\frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=2}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{n+m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{n+1}{\prod_{k=1}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\frac{1-m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    -\frac{1}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m!}-\frac{1}{\prod_{k=1}^{m}(n+k)}
+    \right)
+  \end{align*}
+  であるので,
+  $m$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $\forall n \in \ZZ_{>0}$とする.
+  $P(m)$を次の命題とする:
+  \begin{align*}
+   \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right).
+  \end{align*}
+  このとき,
+  全ての$m\in\ZZ_{>0}$で$P(m)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\sum_{i=1}^n(\frac{1}{i}-\frac{1}{i+1})\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=1}^n\frac{1}{i+1}\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=2}^{n+1}\frac{1}{i}\\
+    &=(1+\sum_{i=2}^n\frac{1}{i})-(\frac{1}{n+1}+\sum_{i=2}^{n}\frac{1}{i})\\
+    &=1-\frac{1}{n+1}\\
+    &=\frac{n}{n+1}.
+  \end{align*}
+  であるので,
+  $P(1)$が成り立つ.
+  
+  \paragraph{Induction Step:}
+  $P(m-1)\implies P(m)$を示す.
+  仮定から
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m-1}\frac{1}{i+k}&=\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+\\  
+    \sum_{i=1}^{n+1}\prod_{k=0}^{m-1}\frac{1}{i+k}&=\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+  \end{align*}
+  であるので,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=
+    \sum_{i=1}^n\frac{1}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m+i-i}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{m+i}{\prod_{k=0}^{m}(i+k)}-\frac{i}{\prod_{k=0}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{\prod_{k=1}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=1}^{m}(i+k)}.\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=1}^{m}(i-1+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m}\frac{1}{\prod_{k=0}^{m-1}(1+k)}\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{\prod_{k=0}^{m-1}(1+k)}\right)\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m!}\right)\\
+    &=\frac{1}{m}\left(
+    \frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+    -\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}\right)
+    -\frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=2}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{n+m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{n+1}{\prod_{k=1}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\frac{1-m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    -\frac{1}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m!}-\frac{1}{\prod_{k=1}^{m}(n+k)}
+    \right)
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 
 \section{Todo}
 
 
-\begin{prop}
-  $\sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)$.
-\end{prop}
 
 
 \begin{prop}
