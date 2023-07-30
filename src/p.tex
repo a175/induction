@@ -1774,6 +1774,82 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+
+\begin{prop}
+  \label{p:20230730}
+  $\forall n\in \ZZ_{>0}$,
+  $\sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{2^1}=\frac{1}{2}=2-\frac{1+2}{2^1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}-\sum_{i=1}^{n-1}\frac{i}{2^i}
+    &=\frac{n}{2^n}\\
+    2-\frac{n+2}{2^n}-(2-\frac{n+1}{2^{n-1}}),
+    &=-\frac{n+2}{2^n}+\frac{n+1}{2^{n-1}}
+    =-\frac{n+2}{2^n}+\frac{2n+2}{2^{n}}
+    =\frac{n}{2^{n}}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{2^1}&=\frac{1}{2}.\\
+    2-\frac{1+2}{2^1}&=2-\frac{3}{2}=\frac{1}{2}.
+    \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{i}{2^i}=2-\frac{n+1}{2^{n-1}}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}
+    &=\frac{n}{2^n}+\sum_{i=1}^{n-1}\frac{i}{2^i}\\
+    &=\frac{n}{2^n}+2-\frac{n+1}{2^{n-1}}\\
+    &=2+\frac{n}{2^n}-\frac{n+1}{2^{n-1}}\\
+    &=2+\frac{n}{2^n}-\frac{2(n+1)}{2^{n}}\\
+    &=2-\frac{n+2}{2^n}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \Cref{p:20230721}つまり
+  \begin{align*}
+    \sum_{i=0}^{n}ix^{i}
+    &=x\frac{d}{dx}\sum_{i=0}^{n}x^{i}\\
+    &=x\frac{d}{dx}\frac{1-x^n}{1-x}\\
+    &=x\frac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}
+  \end{align*}
+  をみとめ,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}
+    &=
+    \frac{1}{2}\frac{n\frac{1}{2^{n+1}}-(n+1)\frac{1}{2^n}+1}{(\frac{1}{2}-1)^2}\\
+    &=
+    \frac{1}{2}\frac{\frac{n}{2^{n+1}}-\frac{(n+1)}{2^n}+1}{\frac{1}{2^2}}\\
+    &=
+    \frac{2^2}{2}\left(\frac{n}{2^{n+1}}-\frac{(n+1)}{2^n}+1\right)\\
+    &=
+    \frac{n}{2^{n}}-\frac{2(n+1)}{2^n}+2\\
+    &=
+    2-\frac{n+2}{2^n}
+    .\qedhere
+  \end{align*}
+\end{rem}
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
@@ -1782,9 +1858,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-  $\sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}$.
-\end{prop}
 
 
 \begin{prop}
