@@ -1325,7 +1325,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \end{rem}
 
 
-\subsection{有理式などの和に関するもの}
+\subsubsection{有理式などの和に関するもの}
 \begin{prop}
   \label{p:20230726}
   $\forall n \in \ZZ_{>0}$,
@@ -1850,6 +1850,187 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+
+\begin{prop}
+  \label{p:20230731}
+  $\forall n\in \ZZ_{>0}$,
+  $\sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1+\sqrt{2}}=\frac{(-1+\sqrt{2})}{(1+\sqrt{2})(-1+\sqrt{2})}=(-1+\sqrt{2})$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}-\sum_{i=1}^{n-1} \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &=\frac{1}{\sqrt{n}+\sqrt{n+1}}\\
+    &=\frac{-\sqrt{n}+\sqrt{n+1}}{(\sqrt{n}+\sqrt{n+1})(-\sqrt{n}+\sqrt{n+1})}\\
+    &=\frac{-\sqrt{n}+\sqrt{n+1}}{-n+n+1)}\\
+    &=-\sqrt{n}+\sqrt{n+1}\\
+    (\sqrt{n+1}-1)-(\sqrt{n}-1)&=\sqrt{n+1}-\sqrt{n}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{\sqrt{1}+\sqrt{1+1}}&=\frac{1}{1+\sqrt{2}}=
+    \frac{(-1+\sqrt{2})}{(1+\sqrt{2})(-1+\sqrt{2})}=
+    -1+\sqrt{2}.\\
+    \sqrt{1+1}-1&=\sqrt{2}-1.
+    \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n}-1$であるので,
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &= \frac{1}{\sqrt{n}+\sqrt{n+1}}+\sum_{i=1}^{n-1} \frac{1}{\sqrt{i}+\sqrt{i+1}}\\
+    &= \frac{1}{\sqrt{n}+\sqrt{n+1}}+\sqrt{n}-1\\
+    &= \frac{-\sqrt{n}+\sqrt{n+1}}{(\sqrt{n}+\sqrt{n+1})(-\sqrt{n}+\sqrt{n+1})}+\sqrt{n}-1\\
+    &= \frac{-\sqrt{n}+\sqrt{n+1}}{-n+n+1}+\sqrt{n}-1\\
+    &= -\sqrt{n}+\sqrt{n+1}+\sqrt{n}-1\\
+    &=\sqrt{n+1}-1
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &=\sum_{i=1}^n \frac{-\sqrt{i}+\sqrt{i+1}}{(\sqrt{i}+\sqrt{i+1})(-\sqrt{i}+\sqrt{i+1})}\\
+    &=\sum_{i=1}^n \frac{-\sqrt{i}+\sqrt{i+1}}{-i+i+1}\\
+    &=\sum_{i=1}^n (-\sqrt{i}+\sqrt{i+1})\\
+    &=-\sum_{i=1}^n\sqrt{i}+\sum_{i=1}^n\sqrt{i+1})\\
+    &=-\sum_{i=1}^n\sqrt{i}+\sum_{i=2}^{n+1}\sqrt{i})\\
+    &=-\sqrt{1}-\sum_{i=2}^n\sqrt{i}+\sqrt{n+1}+\sum_{i=2}^{n}\sqrt{i})\\
+    &=-\sqrt{1}+\sqrt{n+1}\\
+    &=\sqrt{n+1}-1
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+\subsubsection{合同式に関するもの}
+\begin{prop}
+  \label{p:20230801}
+  $\forall n\in \NN$,
+  $7^n-2n-1\equiv 0\pmod{4}$.
+\end{prop}
+\begin{proof**}
+  $7^0-2\cdot 0-1=1-0-1=0$である.
+  また,
+  \begin{align*}
+    (7^n-2n-1)=7(7^{n-1}-2(n-1)-1)+12n-8
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    7^n-2n-1\equiv 0\pmod{4}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^0-2\cdot 0-1=1-0-1= 0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$7^{n-1}-2(n-1)-1\equiv 0\pmod{4}$であるので,
+  \begin{align*}
+    7^n-2n-1
+    &=7(7^{n-1}-2(n-1)-1)+12n-8\\
+    &\equiv 7\cot 0+0n-0\pmod{4}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{proof**}
+  $7^0-2\cdot 0-1=1-0-1=0$,
+  $7^1-2\cdot 1-1=7-2-1=4\equiv 0\pmod{4}$
+  である.
+  また,
+  \begin{align*}
+    (7^n-2n-1)-(7^{n-2}-2(n-2)-1)
+    &=7^{n-2}(7^2-1)-4
+    =7^{n-2}48-4
+    =4(7^{n-2}12-1)
+    \equiv 0 \pmod{4}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    7^n-2n-1\equiv 0\pmod{4}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^0-2\cdot 0-1&=1-0-1= 0.
+  \end{align*}
+
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^1-2\cdot 1-1&=7-2-1=4\equiv 0\pmod{4}.
+  \end{align*}
+    
+  \paragraph{Induction Step:}
+  $P(n-2)\implies P(n)$を示す.
+  仮定から$7^{n-2}-2(n-2)-1=7^{n-2}-2n+3\equiv 0\pmod{4}$であるので,
+  \begin{align*}
+    7^n-2n-1
+    &=7^2(7^{n-2}-2n+3)+96n-148\\
+    &=7^2(7^{n-2}-2n+3)+4(24n-37)\\
+    &\equiv 0\pmod{4}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    7^n-2n-1&\equiv (-1)^n-2n-1 \pmod{4}
+  \end{align*}
+  である. $n=2k$のとき,
+  \begin{align*}
+    (-1)^n-2n-1=(-1)^{2k}-2(2k)-1=1-4k-1=4k \equiv 0 \pmod{4}.
+  \end{align*}
+  $n=2k-1$のとき,
+  \begin{align*}
+    (-1)^n-2n-1=(-1)^{2k-1}-2(2k-1)-1=-1-4k+2-1=4k \equiv 0 \pmod{4}.
+  \end{align*}
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
@@ -1861,8 +2042,30 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 \begin{prop}
-  $\sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1$.
+  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$
 \end{prop}
+
+\begin{prop}
+  $3^{3n}-2^n\equiv 0\pmod{25}$
+\end{prop}
+
+\begin{prop}
+  $3^{n}-2^n+3\equiv 0\pmod{4}$
+\end{prop}
+
+\begin{prop}
+  $3^{3n}+7^{2n-1}\equiv 0\pmod{11}$
+\end{prop}
+
+\begin{prop}
+  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
+\end{prop}
+
+\begin{prop}
+  $a_1=7$, $a_{n}=a_{n}^3$
+  $a_n\equiv 1\pmod{3^n}$
+\end{prop}
+
 
 \begin{prop}
   $\forall p,q,n\in\NN$,
@@ -1982,11 +2185,6 @@ $n\in\NN$とする.
   $n\geq 10$ならば, $2^n\geq n^3$.
 \end{prop}
 
-\begin{prop}
-$\prod_{i=1}^n i \equiv 0 \pmod{n!}$.
-\end{prop}
-
-
 
 \begin{prop}
 $n\in\NN$とする.
@@ -2008,34 +2206,6 @@ $n\in\NN$とする.
 \end{prop}
 
 
-\begin{prop}
-  $7^n-2n-1\equiv 0\pmod{4}$
-\end{prop}
-
-\begin{prop}
-  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$
-\end{prop}
-
-\begin{prop}
-  $3^{3n}-2^n\equiv 0\pmod{25}$
-\end{prop}
-
-\begin{prop}
-  $3^{n}-2^n+3\equiv 0\pmod{4}$
-\end{prop}
-
-\begin{prop}
-  $3^{3n}+7^{2n-1}\equiv 0\pmod{11}$
-\end{prop}
-
-\begin{prop}
-  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
-\end{prop}
-
-\begin{prop}
-  $a_1=7$, $a_{n}=a_{n}^3$
-  $a_n\equiv 1\pmod{3^n}$
-\end{prop}
 
 \begin{prop}
   $a_1=1$, $a_2=2$, $a_3=6$,
