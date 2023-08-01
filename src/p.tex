@@ -1958,7 +1958,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \begin{align*}
     7^n-2n-1
     &=7(7^{n-1}-2(n-1)-1)+12n-8\\
-    &\equiv 7\cot 0+0n-0\pmod{4}\\
+    &\equiv 7\cdot 0+0n-0\pmod{4}\\
     &=0
     .\qedhere
   \end{align*}
@@ -1987,22 +1987,15 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
     7^n-2n-1\equiv 0\pmod{4}
     .
   \end{align*}
+  また, $P(2n)$を$P'(n)$とし,
+  $P(2n+1)$を$P''(n)$とおく.
   このとき,
-  全ての$n\in\NN$で$P(n)$が成り立つことを,
-  数学的帰納法で示す.
+  全ての$n\in\NN$で$P(n)$が成り立つことを
+  示すには,
+  全ての$n\in\NN$で$P'(n)$が成り立つことと
+  全ての$n\in\NN$で$P''(n)$が成り立つことを示せば良い.
 
-  \paragraph{Base Case:}
-  $P(0)$が成り立つことは, 以下から明らか:
-  \begin{align*}
-    7^0-2\cdot 0-1&=1-0-1= 0.
-  \end{align*}
-
-  $P(1)$が成り立つことは, 以下から明らか:
-  \begin{align*}
-    7^1-2\cdot 1-1&=7-2-1=4\equiv 0\pmod{4}.
-  \end{align*}
-    
-  \paragraph{Induction Step:}
+  まず,
   $P(n-2)\implies P(n)$を示す.
   仮定から$7^{n-2}-2(n-2)-1=7^{n-2}-2n+3\equiv 0\pmod{4}$であるので,
   \begin{align*}
@@ -2012,8 +2005,41 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
     &\equiv 0\pmod{4}
     .\qedhere
   \end{align*}
-\end{proof*}
 
+  
+  次に,
+  全ての$n\in\NN$で$P'(n)$が成り立つことを,
+  数学的帰納法で示す.
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^0-2\cdot 0-1&=1-0-1= 0.
+  \end{align*}
+    
+  \paragraph{Induction Step:}
+  $P(n-2)\implies P(n)$はすでに示した.
+  したがって,
+  $P(2n-2)\implies P(2n)$
+  が成り立つ.
+  つまり,
+  $P'(n-1)\implies P'(n)$
+  が成り立つ.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^1-2\cdot 1-1&=7-2-1=4\equiv 0\pmod{4}.
+  \end{align*}
+    
+  \paragraph{Induction Step:}
+  $P(n-2)\implies P(n)$はすでに示した.
+  したがって,
+  $P(2n-1)\implies P(2n+1)$
+  が成り立つ.
+  つまり,
+  $P''(n-1)\implies P''(n)$
+  が成り立つ.
+\end{proof*}
 
 \begin{rem}
   数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
@@ -2031,6 +2057,100 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \end{rem}
 
 
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $n=2k$のとき,
+  \begin{align*}
+    7^n-2n-1
+    &=7^{2k}-2(2k)-1\\
+    &=-2(2k)-1+7^{2k}\\
+    &=-4k-1+7^{2k}\\
+    &=-4k-1+(8-1)^{2k}\\
+    &=-4k-1+\sum_{i=0}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k-1+(-1)^{2k}8^{0}+\sum_{i=0}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k-1+1+\sum_{i=1}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k+\sum_{i=1}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k+\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i+1}\\
+    &=-4k+8\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=4\left(-k+2\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i}\right).
+  \end{align*}
+  $n=2k+1$のとき,
+  \begin{align*}
+    7^n-2n-1
+    &=7^{2k+1}-2(2k+1)-1\\
+    &=-2(2k+1)-1+7^{2k+1}\\
+    &=-4k-3+(8-1)^{2k+1}\\
+    &=-4k-3+\sum_{i=0}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-3+(-1)^{2k+1}8^{0}+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-3-1+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i+1}\\
+    &=-4k-4+8\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=4\left(-k-1+2\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\right).
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230801}
+  $\forall n\in \NN$,
+  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$.
+\end{prop}
+
+\begin{proof**}
+  $1000^0+(-1)^{-1}=1-1=0$である.
+  また,
+  \begin{align*}
+    1000^n+(-1)^{n-1}
+    &=1000(1000^{n-1}+(-1)^{n-2})+1000(-1)^{n-1}+(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+1001(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+7\cdot 143(-1)^{n-1}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    1000^n+(-1)^{n-1}\equiv 0\pmod{7}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    1000^0+(-1)^{-1}=1-1=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$1000^{n-1}+(-1)^{n-2}\equiv 0\pmod{7}$であるので,
+  \begin{align*}
+    1000^n+(-1)^{n-1}
+    &=1000(1000^{n-1}+(-1)^{n-2})+1000(-1)^{n-1}+(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+1001(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+7\cdot 143(-1)^{n-1}\\
+    &\equiv 1000\cdot 0+0\cdot 143(-1)^{n-1}\pmod{7}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    1000^n+(-1)^{n-1}&\equiv (-1)^n+(-1)^{n-1}\pmod{7}\\
+    &=(-1)^n-(-1)^n\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
@@ -2041,9 +2161,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$
-\end{prop}
 
 \begin{prop}
   $3^{3n}-2^n\equiv 0\pmod{25}$
