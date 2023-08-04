@@ -1215,51 +1215,1040 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
-\section{制限された数学的帰納法 (Limited mathematical induction)}
 
+\begin{prop}
+  \label{p:20230724}
+  $\forall n\in\NN$,
+  $(2n+1)!!=\frac{(2n+1)!}{2^nn!}$.
+\end{prop}
+\begin{proof**}
+  $1!!=1=\frac{1}{2^0\cdot 1!}$である.
+  また,
+  \begin{align*}
+    \frac{(2n+1)!!}{(2n-1)!!}&=2n+1\\
+    \frac{\frac{(2n+1)!}{2^nn!}}{\frac{(2n-1)!}{2^{n-1}(n-1)!}}
+    &=
+    \frac{(2n+1)!\cdot 2^{n-1}(n-1)!}{2^nn! \cdot (2n-1)!}
+    =\frac{(2n+1)!}{(2n-1)!}\frac{(n-1)!}{n!}\frac{2^{n-1}}{2^n}
+    =\frac{2n(2n+1)\cdot 1\cdot 1}{1 \cdot 2 \cdot n}=2n+1
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    (2n+1)!!=\frac{(2n+1)!}{2^nn!}.
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    1!!&=1.\\
+    \frac{(0+1)!}{2^00!}&=1.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$(2n-1)!!=\frac{(2n-1)!}{2^{n-1}(n-1)!}$であるので,
+  \begin{align*}
+    (2n+1)!!
+    &=(2n+1)\cdot (2n-1)!!\\
+    &=(2n+1)\cdot \frac{(2n-1)!}{2^{n-1}(n-1)!}\\
+    &=\frac{(2n+1)2n}{2n}\cdot \frac{(2n-1)!}{2^{n-1}(n-1)!}\\
+    &=\frac{(2n+1)!}{2^{n}n!}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  \Cref{p:20230723}をみとめて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    (2n+1)!!=\frac{(2n+1)!}{(2n)!!}=\frac{(2n+1)!}{2^nn!}.
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230725}
+  $\forall n\in\ZZ_{>0}$,
+  $\frac{(2n)!}{n!}=2^n(2n-1)!!$.
+\end{prop}
+\begin{proof**}
+  $\frac{2!}{1!}=2=2^11!$である.
+  また,
+  \begin{align*}
+    \frac{\frac{(2n)!}{n!}}{\frac{(2n-2)!}{(n-1)!}}
+    &=\frac{(2n)!(n-1)!}{(2n-2)!n!}
+    =\frac{2n\cdot 2n-1}{n}=2(2n-1)\\
+    \frac{2^n(2n-1)!!}{2^{n-1}(2n-3)!!}
+    &=2(2n-1)
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \frac{(2n)!}{n!}=2^n(2n-1)!!.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{2!}{1!}&=2,\\
+    2^11!&=2.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\frac{(2(n-1))!}{(n-1)!}=2^{n-1}(2n-3)!!$であるので,
+  \begin{align*}
+    \frac{(2n)!}{n!}
+    &=\frac{2n\cdot (2n-1)}{n}\frac{(2n-2)!}{(n-1)!}\\
+    &=2(2n-1)\frac{(2(n-1))!}{(n-1)!}\\
+    &=2(2n-1)2^{n-1}(2n-3)!!
+    &=2^n(2n-1)!!
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \Cref{p:20230723}をみとめて,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    n!\cdot 2^n (2n-1)!!
+    &=2^n n!\cdot (2n-1)!!
+    =(2n)!! (2n-1)!!
+    =(2n)!.\\
+    2^n (2n-1)!!&=\frac{(2n)!}{n!}.
+  \end{align*}
+\end{rem}
+
+
+\subsubsection{有理式などの和に関するもの}
+\begin{prop}
+  \label{p:20230726}
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^n\frac{1}{n+i}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1}-\frac{1}{2}=\frac{1}{2}=\frac{1}{1+1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}-\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}
+    &=\frac{1}{2n-1}-\frac{1}{2n}\\
+    &=\frac{2n-(2n-1)}{2n(2n-1)}\\
+    &=\frac{1}{2n(2n-1)}\\
+    \sum_{i=1}^n\frac{1}{n+i}-\sum_{i=1}^{n-1}\frac{1}{n-1+i}
+    &=\sum_{i=1}^n\frac{1}{n+i}-\sum_{i=0}^{n-2}\frac{1}{n+i}\\
+    &=(\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{n-2}\frac{1}{n+i})
+    -(\frac{1}{n}+\sum_{i=0}^{n-2}\frac{1}{n+i})\\
+    &=\frac{1}{2n}+\frac{1}{2n-1}-\frac{1}{n}\\
+    &=\frac{2n-1+2n-2(2n-1)}{2n(2n-1)}\\
+    &=\frac{1}{2n(2n-1)}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^n\frac{1}{n+i}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{1}-\frac{1}{2}&=\frac{1}{2}.\\
+    \frac{1}{1+1}&=\frac{1}{2}.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}=\sum_{i=1}^{n-1}\frac{1}{n+i-1}$であるので,
+  \begin{align*}
+    \sum_{i=1}^{2n}\frac{(-1)^{i+1}}{i}
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{2n-2}\frac{(-1)^{i+1}}{i}\\
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=1}^{n-1}\frac{1}{n+i-1}\\
+    &=-\frac{1}{2n}+\frac{1}{2n-1}+\sum_{i=0}^{n-2}\frac{1}{n+i}\\
+    &=-\frac{1}{2n}+\sum_{i=0}^{n-1}\frac{1}{n+i}\\
+    &=-\frac{1}{2n}+\frac{1}{n}+\sum_{i=1}^{n-1}\frac{1}{n+i}\\
+    &=\frac{1}{2n}+\sum_{i=1}^{n-1}\frac{1}{n+i}\\
+    &=\sum_{i=1}^{n}\frac{1}{n+i}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{prop}
+  \label{p:20230727}
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1(2)}=\frac{1}{2}=\frac{1}{1+1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}-\sum_{i=1}^{n-1}\frac{1}{i(i+1)}
+    &=\frac{1}{n(n+1)}\\
+    \frac{n}{n+1}-\frac{n-1}{n}
+    &=\frac{n^2-(n+1)(n-1)}{n(n+1)}
+    =\frac{n^2-(n^2-1)}{n(n+1)}
+    =\frac{1}{n(n+1)}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{1(1+1)}&=\frac{1}{2}.\\
+    \frac{1}{1+1}&=\frac{1}{2}.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{1}{i(i+1)}=\frac{n-1}{n}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\frac{1}{n(n+1)}+\sum_{i=1}^{n-1}\frac{1}{i(i+1)}\\
+    &=\frac{1}{n(n+1)}+\frac{n-1}{n}\\
+    &=\frac{1+(n+1)(n-1)}{n(n+1)}\\
+    &=\frac{1+n^2-1}{n(n+1)}\\
+    &=\frac{n^2}{n(n+1)}\\
+    &=\frac{n}{(n+1)}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\sum_{i=1}^n(\frac{1}{i}-\frac{1}{i+1})\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=1}^n\frac{1}{i+1}\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=2}^{n+1}\frac{1}{i}\\
+    &=(1+\sum_{i=2}^n\frac{1}{i})-(\frac{1}{n+1}+\sum_{i=2}^{n}\frac{1}{i})\\
+    &=1-\frac{1}{n+1}\\
+    &=\frac{n}{n+1}.
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230728}
+  $\forall m \in \ZZ_{>0}$,
+  $\forall n \in \ZZ_{>0}$,
+  $\sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)$.
+\end{prop}
+\begin{proof**}
+  \begin{align*}
+    \prod_{k=0}^{m}\frac{1}{1+k}&=\frac{1}{(m+1)!}\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{1+k}\right)
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\left(\frac{m+1}{(m+1)!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\frac{m}{(1+m)!}=\frac{1}{(m+1)!}
+  \end{align*}
+  である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    -\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}
+    &=\prod_{k=0}^{m}\frac{1}{n+k}\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)
+    -\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right)
+    &=\frac{1}{m}\left(-\prod_{k=1}^m\frac{1}{n+k}+\prod_{k=1}^m\frac{1}{n-1+k}\right)\\
+    &=\frac{1}{m}\left(\frac{-n+n+m}{\prod_{k=0}^m n+k}\right)\\
+    &=\frac{1}{m}\frac{m}{(n+m)!}\\
+    &=\frac{1}{(n+m)!}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $\forall m \in \ZZ_{>0}$とする.
+  $P(n)$を次の命題とする:
+  \begin{align*}
+   \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right).
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \prod_{k=0}^{m}\frac{1}{1+k}&=\frac{1}{(m+1)!}.\\
+    \frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{1+k}\right)
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\left(\frac{m+1}{(m+1)!}-\frac{1}{(1+m)!}\right)
+    =\frac{1}{m}\frac{m}{(1+m)!}=\frac{1}{(m+1)!}.
+  \end{align*}
+  
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right)$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=\prod_{k=0}^{m}\frac{1}{n+k}+\sum_{i=1}^{n-1}\prod_{k=0}^{m}\frac{1}{i+k}\\
+    &=\prod_{k=0}^{m}\frac{1}{n+k}+\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n-1+k}\right)\\
+    &=\frac{1}{\prod_{k=0}^{m} (n+k)}+\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{\prod_{k=1}^m(n-1+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{1}{\prod_{k=1}^m(n-1+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{1}{\prod_{k=0}^{m-1}(n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m}{\prod_{k=0}^{m} (n+k)}-\frac{n+m}{\prod_{k=0}^{m}(n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}+\frac{m-(n+m)}{\prod_{k=0}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{n}{\prod_{k=0}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\frac{1}{\prod_{k=1}^{m} (n+k)}\right)\\
+    &=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{proof**}
+  \Cref{p:20230727}から,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\frac{n}{n+1}\\
+    \frac{1}{1}\left(\frac{1}{1!}-\prod_{k=1}^1\frac{1}{n+k}\right)
+    &=
+    \left(1-\frac{1}{n+1}\right)
+    =\frac{n}{n+1}
+  \end{align*}
+  である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=
+    \sum_{i=1}^n\frac{1}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m+i-i}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{m+i}{\prod_{k=0}^{m}(i+k)}-\frac{i}{\prod_{k=0}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{\prod_{k=1}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=1}^{m}(i+k)}.\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=1}^{m}(i-1+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m}\frac{1}{\prod_{k=0}^{m-1}(1+k)}\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{\prod_{k=0}^{m-1}(1+k)}\right)\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m!}\right)
+  \end{align*}
+  であるが,
+  \begin{align*}
+    &\frac{1}{m}\left(
+    \frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+    -\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}\right)
+    -\frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=2}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{n+m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{n+1}{\prod_{k=1}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\frac{1-m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    -\frac{1}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m!}-\frac{1}{\prod_{k=1}^{m}(n+k)}
+    \right)
+  \end{align*}
+  であるので,
+  $m$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $\forall n \in \ZZ_{>0}$とする.
+  $P(m)$を次の命題とする:
+  \begin{align*}
+   \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right).
+  \end{align*}
+  このとき,
+  全ての$m\in\ZZ_{>0}$で$P(m)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{i(i+1)}
+    &=\sum_{i=1}^n(\frac{1}{i}-\frac{1}{i+1})\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=1}^n\frac{1}{i+1}\\
+    &=\sum_{i=1}^n\frac{1}{i}-\sum_{i=2}^{n+1}\frac{1}{i}\\
+    &=(1+\sum_{i=2}^n\frac{1}{i})-(\frac{1}{n+1}+\sum_{i=2}^{n}\frac{1}{i})\\
+    &=1-\frac{1}{n+1}\\
+    &=\frac{n}{n+1}.
+  \end{align*}
+  であるので,
+  $P(1)$が成り立つ.
+  
+  \paragraph{Induction Step:}
+  $P(m-1)\implies P(m)$を示す.
+  仮定から
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m-1}\frac{1}{i+k}&=\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+\\  
+    \sum_{i=1}^{n+1}\prod_{k=0}^{m-1}\frac{1}{i+k}&=\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+  \end{align*}
+  であるので,
+  \begin{align*}
+    \sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}
+    &=
+    \sum_{i=1}^n\frac{1}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{m+i-i}{\prod_{k=0}^{m}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{m+i}{\prod_{k=0}^{m}(i+k)}-\frac{i}{\prod_{k=0}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\left(\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{\prod_{k=1}^{m}(i+k)}\right)\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=1}^{m}(i+k)}.\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=1}^{m}(i-1+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=2}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}\\
+    &=
+    \frac{1}{m}\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\frac{1}{m}\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m}\frac{1}{\prod_{k=0}^{m-1}(1+k)}\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{\prod_{k=0}^{m-1}(1+k)}\right)\\
+    &=
+    \frac{1}{m}\left(\sum_{i=1}^n\frac{1}{\prod_{k=0}^{m-1}(i+k)}-\sum_{i=1}^{n+1}\frac{1}{\prod_{k=0}^{m-1}(i+k)}
+    +\frac{1}{m!}\right)\\
+    &=\frac{1}{m}\left(
+    \frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+k}\right)
+    -\frac{1}{m-1}\left(\frac{1}{(m-1)!}-\prod_{k=1}^{m-1}\frac{1}{n+1+k}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}\right)
+    -\frac{1}{m-1}\left(-\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=1}^{m-1}(n+1+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{1}{\prod_{k=1}^{m-1}(n+k)}
+    +\frac{1}{\prod_{k=2}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}
+    \left(-\frac{n+m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{n+1}{\prod_{k=1}^{m}(n+k)}\right)
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m-1}\frac{1-m}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    -\frac{1}{\prod_{k=1}^{m}(n+k)}
+    +\frac{1}{m!}\right)\\
+    &=
+    \frac{1}{m}\left(
+    \frac{1}{m!}-\frac{1}{\prod_{k=1}^{m}(n+k)}
+    \right)
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+
+\begin{prop}
+  \label{p:20230729}
+  $\forall n\in \ZZ_{>0}$,
+  $\sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}=\frac{n}{2n+1}$.
+\end{prop}
+
+\begin{proof**}
+  $\frac{1}{1\cdot 3}=\frac{1}{3}=\frac{1}{2\cdot 1+1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}-\sum_{i=1}^{n-1}\frac{1}{(2i-1)(2i+1)}
+&=\frac{1}{(2n-1)(2n+1)}\\
+    \frac{n}{2n+1}-\frac{n-1}{2n-1}
+    &=\frac{n(2n-1)-(n-1)(2n+1)}{(2n-1)(2n+1)}\\
+    &=\frac{(2n^2-n)-(2n^2-n-1)}{(2n-1)(2n+1)}\\
+    &=\frac{1}{(2n-1)(2n+1)}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}=\frac{n}{2n+1}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{1\cdot 3}&=\frac{1}{3}.\\
+    \frac{1}{2\cdot 1+1}&=\frac{1}{3}.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{1}{(2i-1)(2i+1)}=\frac{n-1}{2n-1}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}
+    &=\frac{1}{(2n-1)(2n+1)}+\sum_{i=1}^{n-1}\frac{1}{(2i-1)(2i+1)}\\
+    &=\frac{1}{(2n-1)(2n+1)}+\frac{n-1}{2n-1}\\
+    &=\frac{1+(2n+1)(n-1)}{(2n-1)(2n+1)}\\
+    &=\frac{1+(2n^2-n-1)}{(2n-1)(2n+1)}\\
+    &=\frac{2n^2-n}{(2n-1)(2n+1)}\\
+    &=\frac{n(2n-1)}{(2n-1)(2n+1)}\\
+    &=\frac{n}{2n+1}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}
+    &=\frac{1}{2}\sum_{i=1}^n\frac{2}{(2i-1)(2i+1)}\\
+    &=\frac{1}{2}\sum_{i=1}^n\frac{(2i+1)-(2i-1)}{(2i-1)(2i+1)}\\
+    &=\frac{1}{2}\sum_{i=1}^n\left(\frac{(2i+1)}{(2i-1)(2i+1)}-\frac{(2i-1)}{(2i-1)(2i+1)}\right)\\
+    &=\frac{1}{2}\sum_{i=1}^n\left(\frac{1}{2i-1}-\frac{1}{2i+1}\right)\\
+    &=\frac{1}{2}\left(\sum_{i=1}^n\frac{1}{2i-1}-\sum_{i=1}^n\frac{1}{2i+1}\right)\\
+    &=\frac{1}{2}\left(\sum_{i=0}^{n-1}\frac{1}{2i+1}-\sum_{i=1}^n\frac{1}{2i+1}\right)\\
+    &=\frac{1}{2}\left(\frac{1}{2\cdot 0 + 1}+\sum_{i=1}^{n-1}\frac{1}{2i+1}-\frac{1}{2n+1}-\sum_{i=1}^{n-1}\frac{1}{2i+1}\right)\\
+    &=\frac{1}{2}\left(1-\frac{1}{2n+1}\right)\\
+    &=\frac{1}{2}\frac{2n+1-1}{2n+1}\\
+    &=\frac{1}{2}\frac{2n}{2n+1}\\
+    &=\frac{n}{2n+1}
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+
+\begin{prop}
+  \label{p:20230730}
+  $\forall n\in \ZZ_{>0}$,
+  $\sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{2^1}=\frac{1}{2}=2-\frac{1+2}{2^1}$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}-\sum_{i=1}^{n-1}\frac{i}{2^i}
+    &=\frac{n}{2^n}\\
+    2-\frac{n+2}{2^n}-(2-\frac{n+1}{2^{n-1}}),
+    &=-\frac{n+2}{2^n}+\frac{n+1}{2^{n-1}}
+    =-\frac{n+2}{2^n}+\frac{2n+2}{2^{n}}
+    =\frac{n}{2^{n}}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}.
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{2^1}&=\frac{1}{2}.\\
+    2-\frac{1+2}{2^1}&=2-\frac{3}{2}=\frac{1}{2}.
+    \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{i}{2^i}=2-\frac{n+1}{2^{n-1}}$であるので,
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}
+    &=\frac{n}{2^n}+\sum_{i=1}^{n-1}\frac{i}{2^i}\\
+    &=\frac{n}{2^n}+2-\frac{n+1}{2^{n-1}}\\
+    &=2+\frac{n}{2^n}-\frac{n+1}{2^{n-1}}\\
+    &=2+\frac{n}{2^n}-\frac{2(n+1)}{2^{n}}\\
+    &=2-\frac{n+2}{2^n}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  \Cref{p:20230721}つまり
+  \begin{align*}
+    \sum_{i=0}^{n}ix^{i}
+    &=x\frac{d}{dx}\sum_{i=0}^{n}x^{i}\\
+    &=x\frac{d}{dx}\frac{1-x^n}{1-x}\\
+    &=x\frac{nx^{n+1}-(n+1)x^n+1}{(x-1)^2}
+  \end{align*}
+  をみとめ,
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n\frac{i}{2^i}
+    &=
+    \frac{1}{2}\frac{n\frac{1}{2^{n+1}}-(n+1)\frac{1}{2^n}+1}{(\frac{1}{2}-1)^2}\\
+    &=
+    \frac{1}{2}\frac{\frac{n}{2^{n+1}}-\frac{(n+1)}{2^n}+1}{\frac{1}{2^2}}\\
+    &=
+    \frac{2^2}{2}\left(\frac{n}{2^{n+1}}-\frac{(n+1)}{2^n}+1\right)\\
+    &=
+    \frac{n}{2^{n}}-\frac{2(n+1)}{2^n}+2\\
+    &=
+    2-\frac{n+2}{2^n}
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+
+\begin{prop}
+  \label{p:20230731}
+  $\forall n\in \ZZ_{>0}$,
+  $\sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1$.
+\end{prop}
+\begin{proof**}
+  $\frac{1}{1+\sqrt{2}}=\frac{(-1+\sqrt{2})}{(1+\sqrt{2})(-1+\sqrt{2})}=(-1+\sqrt{2})$である.
+  また,
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}-\sum_{i=1}^{n-1} \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &=\frac{1}{\sqrt{n}+\sqrt{n+1}}\\
+    &=\frac{-\sqrt{n}+\sqrt{n+1}}{(\sqrt{n}+\sqrt{n+1})(-\sqrt{n}+\sqrt{n+1})}\\
+    &=\frac{-\sqrt{n}+\sqrt{n+1}}{-n+n+1)}\\
+    &=-\sqrt{n}+\sqrt{n+1}\\
+    (\sqrt{n+1}-1)-(\sqrt{n}-1)&=\sqrt{n+1}-\sqrt{n}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \frac{1}{\sqrt{1}+\sqrt{1+1}}&=\frac{1}{1+\sqrt{2}}=
+    \frac{(-1+\sqrt{2})}{(1+\sqrt{2})(-1+\sqrt{2})}=
+    -1+\sqrt{2}.\\
+    \sqrt{1+1}-1&=\sqrt{2}-1.
+    \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$\sum_{i=1}^{n-1}\frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n}-1$であるので,
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &= \frac{1}{\sqrt{n}+\sqrt{n+1}}+\sum_{i=1}^{n-1} \frac{1}{\sqrt{i}+\sqrt{i+1}}\\
+    &= \frac{1}{\sqrt{n}+\sqrt{n+1}}+\sqrt{n}-1\\
+    &= \frac{-\sqrt{n}+\sqrt{n+1}}{(\sqrt{n}+\sqrt{n+1})(-\sqrt{n}+\sqrt{n+1})}+\sqrt{n}-1\\
+    &= \frac{-\sqrt{n}+\sqrt{n+1}}{-n+n+1}+\sqrt{n}-1\\
+    &= -\sqrt{n}+\sqrt{n+1}+\sqrt{n}-1\\
+    &=\sqrt{n+1}-1
+    .\qedhere
+  \end{align*}
+\end{proof*}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    \sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}
+    &=\sum_{i=1}^n \frac{-\sqrt{i}+\sqrt{i+1}}{(\sqrt{i}+\sqrt{i+1})(-\sqrt{i}+\sqrt{i+1})}\\
+    &=\sum_{i=1}^n \frac{-\sqrt{i}+\sqrt{i+1}}{-i+i+1}\\
+    &=\sum_{i=1}^n (-\sqrt{i}+\sqrt{i+1})\\
+    &=-\sum_{i=1}^n\sqrt{i}+\sum_{i=1}^n\sqrt{i+1})\\
+    &=-\sum_{i=1}^n\sqrt{i}+\sum_{i=2}^{n+1}\sqrt{i})\\
+    &=-\sqrt{1}-\sum_{i=2}^n\sqrt{i}+\sqrt{n+1}+\sum_{i=2}^{n}\sqrt{i})\\
+    &=-\sqrt{1}+\sqrt{n+1}\\
+    &=\sqrt{n+1}-1
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+\subsubsection{合同式に関するもの}
+\begin{prop}
+  \label{p:20230801}
+  $\forall n\in \NN$,
+  $7^n-2n-1\equiv 0\pmod{4}$.
+\end{prop}
+\begin{proof**}
+  $7^0-2\cdot 0-1=1-0-1=0$である.
+  また,
+  \begin{align*}
+    (7^n-2n-1)=7(7^{n-1}-2(n-1)-1)+12n-8
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    7^n-2n-1\equiv 0\pmod{4}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^0-2\cdot 0-1=1-0-1= 0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$7^{n-1}-2(n-1)-1\equiv 0\pmod{4}$であるので,
+  \begin{align*}
+    7^n-2n-1
+    &=7(7^{n-1}-2(n-1)-1)+12n-8\\
+    &\equiv 7\cdot 0+0n-0\pmod{4}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{proof**}
+  $7^0-2\cdot 0-1=1-0-1=0$,
+  $7^1-2\cdot 1-1=7-2-1=4\equiv 0\pmod{4}$
+  である.
+  また,
+  \begin{align*}
+    (7^n-2n-1)-(7^{n-2}-2(n-2)-1)
+    &=7^{n-2}(7^2-1)-4
+    =7^{n-2}48-4
+    =4(7^{n-2}12-1)
+    \equiv 0 \pmod{4}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    7^n-2n-1\equiv 0\pmod{4}
+    .
+  \end{align*}
+  また, $P(2n)$を$P'(n)$とし,
+  $P(2n+1)$を$P''(n)$とおく.
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを
+  示すには,
+  全ての$n\in\NN$で$P'(n)$が成り立つことと
+  全ての$n\in\NN$で$P''(n)$が成り立つことを示せば良い.
+
+  まず,
+  $P(n-2)\implies P(n)$を示す.
+  仮定から$7^{n-2}-2(n-2)-1=7^{n-2}-2n+3\equiv 0\pmod{4}$であるので,
+  \begin{align*}
+    7^n-2n-1
+    &=7^2(7^{n-2}-2n+3)+96n-148\\
+    &=7^2(7^{n-2}-2n+3)+4(24n-37)\\
+    &\equiv 0\pmod{4}
+    .\qedhere
+  \end{align*}
+
+  
+  次に,
+  全ての$n\in\NN$で$P'(n)$が成り立つことを,
+  数学的帰納法で示す.
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^0-2\cdot 0-1&=1-0-1= 0.
+  \end{align*}
+    
+  \paragraph{Induction Step:}
+  $P(n-2)\implies P(n)$はすでに示した.
+  したがって,
+  $P(2n-2)\implies P(2n)$
+  が成り立つ.
+  つまり,
+  $P'(n-1)\implies P'(n)$
+  が成り立つ.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    7^1-2\cdot 1-1&=7-2-1=4\equiv 0\pmod{4}.
+  \end{align*}
+    
+  \paragraph{Induction Step:}
+  $P(n-2)\implies P(n)$はすでに示した.
+  したがって,
+  $P(2n-1)\implies P(2n+1)$
+  が成り立つ.
+  つまり,
+  $P''(n-1)\implies P''(n)$
+  が成り立つ.
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    7^n-2n-1&\equiv (-1)^n-2n-1 \pmod{4}
+  \end{align*}
+  である. $n=2k$のとき,
+  \begin{align*}
+    (-1)^n-2n-1=(-1)^{2k}-2(2k)-1=1-4k-1=4k \equiv 0 \pmod{4}.
+  \end{align*}
+  $n=2k-1$のとき,
+  \begin{align*}
+    (-1)^n-2n-1=(-1)^{2k-1}-2(2k-1)-1=-1-4k+2-1=4k \equiv 0 \pmod{4}.
+  \end{align*}
+\end{rem}
+
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $n=2k$のとき,
+  \begin{align*}
+    7^n-2n-1
+    &=7^{2k}-2(2k)-1\\
+    &=-2(2k)-1+7^{2k}\\
+    &=-4k-1+7^{2k}\\
+    &=-4k-1+(8-1)^{2k}\\
+    &=-4k-1+\sum_{i=0}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k-1+(-1)^{2k}8^{0}+\sum_{i=0}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k-1+1+\sum_{i=1}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k+\sum_{i=1}^{2k}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=-4k+\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i+1}\\
+    &=-4k+8\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i}\\
+    &=4\left(-k+2\sum_{i=0}^{2k-1}\binom{2k}{i}(-1)^{2k-i}8^{i}\right).
+  \end{align*}
+  $n=2k+1$のとき,
+  \begin{align*}
+    7^n-2n-1
+    &=7^{2k+1}-2(2k+1)-1\\
+    &=-2(2k+1)-1+7^{2k+1}\\
+    &=-4k-3+(8-1)^{2k+1}\\
+    &=-4k-3+\sum_{i=0}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-3+(-1)^{2k+1}8^{0}+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-3-1+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=1}^{2k+1}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=-4k-4+\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i+1}\\
+    &=-4k-4+8\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\\
+    &=4\left(-k-1+2\sum_{i=0}^{2k}\binom{2k+1}{i}(-1)^{2k+1-i}8^{i}\right).
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230802}
+  $\forall n\in \NN$,
+  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$.
+\end{prop}
+
+\begin{proof**}
+  $1000^0+(-1)^{-1}=1-1=0$である.
+  また,
+  \begin{align*}
+    1000^n+(-1)^{n-1}
+    &=1000(1000^{n-1}+(-1)^{n-2})+1000(-1)^{n-1}+(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+1001(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+7\cdot 143(-1)^{n-1}
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    1000^n+(-1)^{n-1}\equiv 0\pmod{7}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    1000^0+(-1)^{-1}=1-1=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$1000^{n-1}+(-1)^{n-2}\equiv 0\pmod{7}$であるので,
+  \begin{align*}
+    1000^n+(-1)^{n-1}
+    &=1000(1000^{n-1}+(-1)^{n-2})+1000(-1)^{n-1}+(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+1001(-1)^{n-1}\\
+    &=1000(1000^{n-1}+(-1)^{n-2})+7\cdot 143(-1)^{n-1}\\
+    &\equiv 1000\cdot 0+0\cdot 143(-1)^{n-1}\pmod{7}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    1000^n+(-1)^{n-1}&\equiv (-1)^n+(-1)^{n-1}\pmod{7}\\
+    &=(-1)^n-(-1)^n\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+\begin{prop}
+  \label{p:20230803}
+  $\forall n\in \NN$,
+  $3^{3n}-2^n\equiv 0\pmod{25}$.
+\end{prop}
+
+\begin{proof**}
+  $3^{0}-2^0=1-1=0$である.
+  また,
+  \begin{align*}
+    (3^{3n}-2^n)-3^3(3^{3n-3}-2^{n-1})
+    &=(3^{3n}-2^n)-(3^{3n}-3^32^{n-1})\\
+    &=-2^n+3^32^{n-1}\\
+    &=2^{n-1}(-2+3^3)\\
+    &=2^{n-1}(-2+27)\\
+    &=2^{n-1}25
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    3^{3n}-2^n\equiv 0\pmod{25}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    3^{0}-2^0=1-1=0.
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$3^{3n-3}-2^{n-1}\equiv 0\pmod{25}$であるので,
+  \begin{align*}
+    3^{3n}-2^n
+    &=3^3(3^{3n-3}-2^{n-1})+3^32^{n-1}-2^n\\
+    &=3^3(3^{3n-3}-2^{n-1})+2^{n-1}(3^3-2)\\
+    &=3^3(3^{3n-3}-2^{n-1})+2^{n-1}(27-2)\\
+    &=3^3(3^{3n-3}-2^{n-1})+2^{n-1}(25)\\
+    &\equiv 3^30+2^{n-1}0\pmod{25}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    3^{3n}-2^n
+    =(3^3)^n-2^n
+    =27^n-2^n
+    =(25+2)^n-2^n
+    &\equiv 2^n-2^n \pmod{25}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{rem}
+\section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
 
 
 
 
-\begin{prop}
-  $(2n+1)!!=\frac{(2n+1)!}{2^nn!}$
-\end{prop}
 
-\begin{prop}
-  $\frac{2n!}{n!}=2^n(2n-1)!!$
-\end{prop}
 
-\begin{prop}
-  $\sum_{i=1}^{2n}\frac{(-1)^i}{i}=\sum_{i=1}^n\frac{1}{n+i}$
-\end{prop}
-
-\begin{prop}
-  $\sum_{i=1}^n\left( \frac{1}{2i-1}-\frac{1}{2i}\right)=\sum_{i=n+1}^{2n}\frac{1}{i}$.
-\end{prop}
-
-\begin{prop}
-  $\sum_{i=1}^n\frac{1}{i(i+1)}=\frac{n}{n+1}$.
-\end{prop}
-
-\begin{prop}
-  $\sum_{i=1}^n\prod_{k=0}^{m}\frac{1}{i+k}=\frac{1}{m}\left(\frac{1}{m!}-\prod_{k=1}^m\frac{1}{n+k}\right)$.
-\end{prop}
 
 
 \begin{prop}
-  $\sum_{i=1}^n\frac{1}{(2i-1)(2i+1)}=\frac{n}{2n+1}$.
+  $3^{n}-2^n+3\equiv 0\pmod{4}$
 \end{prop}
 
 \begin{prop}
-  $\sum_{i=1}^n\frac{i}{2^i}=2-\frac{n+2}{2^n}$.
+  $3^{3n}+7^{2n-1}\equiv 0\pmod{11}$
 \end{prop}
-
 
 \begin{prop}
-  $\sum_{i=1}^n \frac{1}{\sqrt{i}+\sqrt{i+1}}=\sqrt{n+1}-1$.
+  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
 \end{prop}
+
+\begin{prop}
+  $a_1=7$, $a_{n}=a_{n}^3$
+  $a_n\equiv 1\pmod{3^n}$
+\end{prop}
+
 
 \begin{prop}
   $\forall p,q,n\in\NN$,
@@ -1379,11 +2368,6 @@ $n\in\NN$とする.
   $n\geq 10$ならば, $2^n\geq n^3$.
 \end{prop}
 
-\begin{prop}
-$\prod_{i=1}^n i \equiv 0 \pmod{n!}$.
-\end{prop}
-
-
 
 \begin{prop}
 $n\in\NN$とする.
@@ -1405,34 +2389,6 @@ $n\in\NN$とする.
 \end{prop}
 
 
-\begin{prop}
-  $7^n-2n-1\equiv 0\pmod{4}$
-\end{prop}
-
-\begin{prop}
-  $1000^n+(-1)^{n-1}\equiv 0\pmod{7}$
-\end{prop}
-
-\begin{prop}
-  $3^{3n}-2^n\equiv 0\pmod{25}$
-\end{prop}
-
-\begin{prop}
-  $3^{n}-2^n+3\equiv 0\pmod{4}$
-\end{prop}
-
-\begin{prop}
-  $3^{3n}+7^{2n-1}\equiv 0\pmod{11}$
-\end{prop}
-
-\begin{prop}
-  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
-\end{prop}
-
-\begin{prop}
-  $a_1=7$, $a_{n}=a_{n}^3$
-  $a_n\equiv 1\pmod{3^n}$
-\end{prop}
 
 \begin{prop}
   $a_1=1$, $a_2=2$, $a_3=6$,
@@ -1570,6 +2526,11 @@ $\frac{d^n}{dx^n}(fg)=\sum_{i=0}^n\binom{n}{i}\frac{d^i}{dx^i}f \cdot \frac{d^{n
   % 2.3.9
 \end{prop}
 
+\begin{prop}
+  GBによるた変数割り算アルゴリズムの標準形の存在.
+\end{prop}
+
+
 % ひび多面体
 \begin{prop}
 $\bigcap_{Y\colon \text{凸, $X\subset Y$}}Y=\Set{\sum t_i x_i|t_i\geq 0, \sum t_i=1}$
@@ -1605,6 +2566,14 @@ $\bigcap_{Y\colon \text{凸, $X\subset Y$}}Y=\Set{\sum t_i x_i|t_i\geq 0, \sum t
   %1.6.11
   $char F=p$, $f\in F[x]$がきやくなら,
   ぶんり多項式$h$をつかって$f(x)=h(x^{p^e})$とかける.
+\end{prop}
+
+\begin{prop}
+  %1.7.9
+  $E/F$有限次拡大.
+  $G$を$E$の$F$上の自己同型群とする.
+  $E$は$F[X]$のある分離多項式$f$の最小分解体であるなら,
+  $E^G=F$.
 \end{prop}
 
 
