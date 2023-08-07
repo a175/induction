@@ -2360,6 +2360,90 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   この意味で, この命題は$n=0$のときも成り立つ.
 \end{rem}
 
+\begin{prop}
+  \label{p:20230807}
+  $\forall n\in\ZZ_{>0}$,
+  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
+\end{prop}
+
+\begin{proof**}
+  $4\cdot 3^{1}+2^{4}=12+16=28\equiv 0\pmod{28}$である.
+  また,
+  \begin{align*}
+    4\cdot 3^{2n-1}+2^{4n}
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    -3^22^{4n-4}+2^{4n}\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    2^{4n-4}(-3^2+2^{4})\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    2^{4n-4}(-9+16)\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    -2^{4n-4}7
+  \end{align*}
+  であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    4\cdot 3^{2-1}+2^{4}=12+16\equiv 0\pmod{28}
+  \end{align*}
+
+  \paragraph{Induction Step:}
+  $n>1$とする.
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$4\cdot 3^{2n-3}+2^{4n-4}\equiv 0\pmod{28}$であるので,
+  \begin{align*}
+    4\cdot 3^{2n-1}+2^{4n}
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    -3^22^{4n-4}+2^{4n}\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    2^{4n-4}(-3^2+2^{4})\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    2^{4n-4}(-9+16)\\
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    -2^{4n-4}7.
+  \end{align*}
+  $n>1$であるので, $4n-4\geq 4$である.
+  したがって,
+  \begin{align*}
+    4\cdot 3^{2n-1}+2^{4n}
+    &=3^2(4\cdot 3^{2n-3}+2^{4n-4})
+    -2^{4n-4}7\\
+    &\equiv 3^2\cdot 0-0\pmod{28}\\
+    &=0
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    9^{n-1}3+16^{n-1}4
+    &\equiv 2^{n-1}3+2^{n-1}4 \pmod{7}\\
+    &= 2^{n-1}(3+4)\\
+    &= 2^{n-1}7\\
+    &\equiv 0\pmod{7}.
+  \end{align*}
+  であるので,
+  \begin{align*}
+    4\cdot 3^{2n-1}+2^{4n}
+    &=4(3^{2n-1}+2^{4n-2})\\
+    &=4(9^{n-1}3+16^{n-1}4)\\
+    &\equiv 0 \pmod{28.}
+  \end{align*}
+\end{rem}
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
@@ -2371,9 +2455,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-  $4\cdot 3^{2n-1}+2^{4n}\equiv 0\pmod{28}$
-\end{prop}
 
 \begin{prop}
   $a_1=7$, $a_{n}=a_{n}^3$
