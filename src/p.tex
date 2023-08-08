@@ -2445,12 +2445,129 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+\subsection{不等式に関するもの}
+\begin{prop}
+  \label{p:20230808}
+  $\forall n\in\NN$, $2^n> n$.
+\end{prop}
+\begin{proof**}
+  $2^0=1> 0$である.
+  また,
+  $n=(n-1)+1$であるが,
+  $n\geq 1$に対し,
+  $2^{n-1}+1\leq  2^{n-1}+2^{n-1}=2^n$であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    2^n>n
+    .
+  \end{align*}
+  このとき,
+  全ての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    2^0=1> 0.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $n\geq 1$とする.
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$2^{n-1}>n-1$である.
+  また, $n\geq 1$であるので$2^{n-1}\geq 1$であるので,
+  \begin{align*}
+    n=(n-1)+1<2^{n-1}+1\geq 2^{n-1}+2^{n-1}=2^{n-1}(1+1)=2^n
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    f(x)=2^x-x
+  \end{align*}
+  とおく.
+  \begin{align*}
+    \frac{d}{dx}f(x)=\log 2 \cdot 2^x-1
+  \end{align*}
+  であるので, $x\geq 0$において, $\frac{d}{dx}f(x)> 0$.
+  したがって, $f(x)$は$x\geq 0$において単調増加.
+  また$f(0)=1>0$であるので,
+  $x\geq 0$において$f(x)\geq 0$.
+  よって, $x\geq 0$において$2^x>x$.
+\end{rem}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示すこともできる:
+  $2^0=1>0$である.
+  また, $n\geq 1$に対し,
+  \begin{align*}
+    2^n=(1+1)^n=\sum_{i=0}^n \binom{n}{i}\geq \binom{n}{0}+\binom{n}{1}=1+n>n
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
 
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 2$ならば, $2^n \geq n+2$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 2$ならば, $3^n \geq 2n+1$.
+\end{prop}
 
 
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 3$ならば, $2^n\geq n+5$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 3$ならば, $2^n\geq 2n+1$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 3$ならば, $3^n\geq 4n+10$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 4$ならば, $2^n\geq 3n$.
+\end{prop}
+
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 5$ならば, $2^n\geq n^2$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 5$ならば, $2^n\geq n^2-2n+15$.
+\end{prop}
+
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 10$ならば, $2^n\geq 10n^2$.
+\end{prop}
+
+\begin{prop}
+$n\in\NN$とする.
+  $n\geq 10$ならば, $2^n\geq n^3$.
+\end{prop}
 
 
 
@@ -2520,66 +2637,6 @@ $x\in\RR$と$n\in\NN$に対し, $|\sin(nx)|\leq n|\sin(x)|$.
 \end{prop}
 
 
-\begin{prop}
-$n\in\NN$に対し, $2^n> n$.
-\end{prop}
-
-\begin{prop}
-  $2^n>n^2$
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 2$ならば, $2^n \geq n+2$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 2$ならば, $3^n \geq 2n+1$.
-\end{prop}
-
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 3$ならば, $2^n\geq n+5$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 3$ならば, $2^n\geq 2n+1$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 3$ならば, $3^n\geq 4n+10$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 4$ならば, $2^n\geq 3n$.
-\end{prop}
-
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 5$ならば, $2^n\geq n^2$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 5$ならば, $2^n\geq n^2-2n+15$.
-\end{prop}
-
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 10$ならば, $2^n\geq 10n^2$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 10$ならば, $2^n\geq n^3$.
-\end{prop}
 
 
 \begin{prop}
