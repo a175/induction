@@ -1,0 +1,214 @@
+body {
+  background-color: #e5e4e6;
+  Padding-left: 2em;
+  Padding-right: 2em;
+}
+
+H1 {
+  color: #1c305c;
+  text-shadow:  
+  0px 0px 1px #e3cFb3,
+  3px 3px 0px #FFFFFF,
+  3px 1px 0px #FFFFFF,
+  3px -1px 0px #FFFFFF,
+  3px -3px 0px #FFFFFF,
+  1px -3px 0px #FFFFFF,
+  -1px -3px 0px #FFFFFF,
+  -3px -3px 0px #FFFFFF,
+  -3px -1px 0px #FFFFFF,
+  -3px 1px 0px #FFFFFF,
+  -3px 3px 0px #FFFFFF,
+  -1px 3px 0px #FFFFFF,
+  1px 3px 0px #FFFFFF,
+  0px 0px 10px #e3cFb3;
+  background-image: url(./head1.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  Padding-top: 2.5em;
+  Padding-bottom: 2.5em;
+  Padding-left: 2em;
+  Padding-right: 2em;
+  text-align: center;
+  background-size: 80% auto;
+  min-width: 10em;
+  width: 80%;
+  margin: 0 auto;
+}
+H2 {
+  color: #e5e4e6;
+  background-color: #1c305c;
+  padding-top: 0.2ex;
+  padding-bottom: 0.2ex;
+  margin-right: -1.0em;
+  margin-left: -1.0em;
+  text-align: center;
+}
+
+H3.prog {
+  clear: right;
+  border-top:3px ridge #339;
+  margin-top:2ex;
+  padding-top:3ex;
+}
+
+H4.date {
+ clear: right;
+ margin-left:0.3em;
+}
+
+H5.session {
+ clear: right;
+ margin-left:1em;
+ font-size:medium;
+ margin-bottom:1ex;
+ text-decoration: underline;
+ font-weight:normal;
+}
+p.sessioninfo{
+    margin-left:5.0em;
+    margin-bottom:0ex;
+    padding-bottom:0ex;
+}
+
+IMG.mascot-r {
+ float: right;
+ width: 50%;
+ max-width: 394px;
+ min-width: 200px;
+ margin-bottom:1ex;
+}
+
+P.mascot-r {}
+
+dl.announce {
+  margin-top: 3ex;
+}
+
+dl.announce dt {
+  margin-top: 2ex;
+  margin-left: 0.4em;
+}
+dl.announce dd {
+  margin-left: 1em;
+}
+
+dl.talks {
+  padding-bottom: 1.4ex;
+  padding-left: 0.1em;
+  margin-left:1.3em;
+}
+dl.talks  dt.slot {
+  font-weight:bold;
+  position: relative;
+  left: 0.5em;
+  clear: both;
+  margin-top: 1.4ex;
+  margin-bottom: 0.7ex;
+  width:95%;
+}
+dl.talks  dd.breaktime {
+  font-weight:bold;
+  position: relative;
+  left: 0.5em;
+  clear: both;
+  margin-top: 2ex;
+  margin-bottom: 2ex;
+  width:87%;
+}
+dl.talks  dd.name {
+ left: 2.1em;
+ margin-left: 0em;
+ min-width: 3em;
+ max-width: 75%;
+ position: relative;
+ margin-top: 0.1ex;
+ margin-bottom: 0.2ex;
+}
+dl.talks  dd.title {
+  min-width: 10em;
+  position: relative;
+  left: 1em;
+  width: 95%;
+  margin-top: 0.4ex;
+  margin-bottom: 0.8ex;
+}
+dl.talks dd.title:before {
+ content: "Title: "
+}
+
+dl.talks  dd.note {
+  min-width: 10em;
+  position: relative;
+  left: 1em;
+  width: 90%;
+  margin-top: 0.4ex;
+  margin-bottom: 0.8ex;
+  padding-left: 0.4em;
+}
+
+
+dl.talks  dd.abstract {
+  border-left:1px solid #1c305c;
+  min-width: 10em;
+  position: relative;
+  left: 2em;
+  width: 90%;
+  margin-top: 0.4ex;
+  margin-bottom: 0.8ex;
+  padding-left: 0.4em;
+}
+dl.talks dd.abstract p{
+  padding-top: 0.2ex;
+  padding-bottom: 0.2ex;
+  margin-top:0.2ex;
+  margin-bottom:0.8ex;
+  font-weight: lighter;
+}
+
+
+dl.talks dd.abstract:before
+{
+ content: "Abstract: "
+}
+
+
+
+p.coverletter {
+  text-align:left;
+}
+
+div.foot {
+  font-size:smaller;
+  margin-top:6ex;
+  padding-top:0.1ex;
+  padding-bottom:0.1ex;
+  text-align:center;
+  border:1px solid  #89b8fe;
+  background-image: url(./head1.jpg);
+  width: 70%;
+  margin-left:15%;
+}
+
+div.foot p {
+  margin-top:0.2ex;
+  margin-bottom:0.2ex;
+  font-weight: lighter;
+}
+
+div.foot p.back-link {
+  display:none;
+  margin-top:1.2ex;
+  margin-bottom: 0.4ex;
+  font-weight: bolder;
+}
+
+blockquote.mainthm {
+  Padding-top: 2.5em;
+  Padding-bottom: 2.5em;
+  Padding-left: 2em;
+  Padding-right: 2em;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  font-size:x-large;
+}
