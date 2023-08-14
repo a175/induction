@@ -2636,7 +2636,6 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
-\hypertarget{newest}{}
 \begin{prop}
   \label{p:20230813}
   $n\in\NN, n\geq 3\implies 2^n> 2n+1$.
@@ -2700,6 +2699,74 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
   \end{align*}
 \end{rem}
 
+\hypertarget{newest}{}
+\begin{prop}
+  \label{p:20230814}
+  $n\in\NN, n\geq 4\implies 2^n > 3n$.
+\end{prop}
+\begin{proof**}
+  $2^4=16>12=3\cdot 4$である.
+  また,
+  $2^n=2\cdot 2^{n-1}=2^{n-1}+2^{n-1}$であるが,
+  $n\geq 3$に対し,
+  $2^{n-1} \geq 3$であるので,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    2^n > 3n
+    .
+  \end{align*}
+  このとき,
+  $4$以上の整数$n$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(4)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    2^4=16>12=3\cdot 4.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $n\geq 5$とする.
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$2^{n-1}\geq 3n-3$である.
+  また, $n\geq 3$であるので$2^{n-1}\geq 4$であるので,
+  \begin{align*}
+    2^n=2^{n-1}(1+1)=2^{n-1}+2^{n-1}\geq 3n-3+2^{n-1}\geq 3n-3+4=3n+1>3n
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    f(x)=2^x-3x
+  \end{align*}
+  とおく.
+  \begin{align*}
+    \frac{d}{dx}f(x)=\log 2 \cdot 2^x-3
+  \end{align*}
+  であるので, $x\geq 2$において, $\frac{d}{dx}f(x)> 0$.
+  したがって, $f(x)$は$x\geq 2$において単調増加.
+  また$f(4)=16-12=4$であるので,
+  $x\geq 4$において$f(x) > 0$.
+  よって, $x\geq 4$において$2^x>3x$.
+\end{rem}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示すこともできる:
+  $n\geq 4$に対し, $\frac{n+2}{2}\geq 3$
+  \begin{align*}
+    2^n=(1+1)^n=\sum_{i=0}^n \binom{n}{i}
+    &\geq \binom{n}{1}+\binom{n}{2}+\binom{n}{n-1}\\
+    &=n+\frac{n(n-1)}{2}+n\\
+    &=\left(\frac{n+3}{2}\right)n\\
+    &=\left(\frac{n+2}{2}+\frac{1}{2}\right)n
+    > 3n
+    .\qedhere
+  \end{align*}
+\end{rem}
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
@@ -2707,15 +2774,11 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 
 
 
-\begin{prop}
-$n\in\NN$とする.
-  $n\geq 4$ならば, $2^n\geq 3n$.
-\end{prop}
 
 
 \begin{prop}
 $n\in\NN$とする.
-  $n\geq 5$ならば, $2^n\geq n^2$.
+  $n\geq 4$ならば, $2^n\geq n^2$.
 \end{prop}
 
 \begin{prop}
