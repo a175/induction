@@ -2935,7 +2935,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{rem}
 
-\newest
 \begin{prop}
   \label{p:20230817}
   $n\in\NN, n\geq 10\implies 2^n>10n^2$.
@@ -2963,7 +2962,7 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   $P(10)$が成り立つことは, 以下から明らか:
   \begin{align*}
     2^{10}&=1024\\
-    10n^2&=1000
+    10\cdot 10^2&=1000
   \end{align*}
   \paragraph{Induction Step:}
   $n\geq 11$とする.
@@ -3005,24 +3004,94 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   よって, $x\geq 10$において$2^x > 10x^2$.
 \end{rem}
 
+\newest
+\begin{prop}
+  \label{p:20230818}
+  $n\in\NN, n\geq 10\implies 2^n\geq n^3$.
+\end{prop}
+\begin{proof**}
+  $2^{10}=1024>1000=n^3$である.
+  また, $2\cdot(11-1)^3=2000$, $11^3=1331$であることから,
+  $n\geq 11$に対し,
+  $2\cdot (n-1)^3>n^3$
+  である.
+  したがって,
+  $2^n=2\cdot 2^{n-1}$であことから,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    2^n\geq n^3
+    .
+  \end{align*}
+  このとき,
+  $10$以上の整数$n$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(10)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    2^{10}&=1024,\\
+    10^3&=1000.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $n\geq 11$とする.
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$2^{n-1} > 10(n-1)^2$である.
+  また, $2\cdot(11-1)^3=2000$, $11^3=1331$であることから,
+  $n\geq 11$に対し,
+  \begin{align*}
+    2\cdot (n-1)^3>n^3
+  \end{align*}
+  であることがわかる.
+  よって,
+  \begin{align*}
+    2^n=2\cdot 2^{n-1}>2(n-1)^3>n^3
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    f(x)=2^x-x^3
+  \end{align*}
+  とおく.
+  \begin{align*}
+    \frac{d}{dx}f(x)&=\log 2 \cdot 2^x-3x^2\\
+    \frac{d^2}{dx^2}f(x)&=(\log 2)^2 \cdot 2^x-6x\\
+    \frac{d^3}{dx^3}f(x)&=(\log 2)^3 \cdot 2^x-6\\
+  \end{align*}
+  であるので,
+  $x\geq 3$において,
+  $\frac{d^3}{dx^3}f(x)>0$.
+  よって, 
+  $\frac{d^2}{dx^2}f(x)$は,
+  $x\geq 3$において単調増加.
+  また,
+  $\frac{d^2}{dx^2}f(5)>0$であるから,
+  $x\geq 5$において,
+  $\frac{d^2}{dx^2}f(x)>0$.
+  よって, 
+  $\frac{d}{dx}f(x)$は,
+  $x\geq 5$において単調増加.  
+  また, $\frac{d}{dx}f(8)>0$であるので,
+  $x\geq 8$において,
+  $\frac{d}{dx}f(x)> 0$.
+  したがって, $f(x)$は$x\geq 8$において単調増加.
+  また$f(10)=1024-1000=24>0$であるので,
+  $x\geq 10$において$f(x) > 0$.
+  よって, $x\geq 10$において$2^x > x^3$.
+\end{rem}
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
 
 
-
-
-
-
-
 \begin{prop}
-$n\in\NN$とする.
-  $n\geq 10$ならば, $2^n\geq n^3$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
+  $n\in\NN$とする.
   $n\geq 2$ならば, $3^n \geq 2n+1$.
 \end{prop}
 
