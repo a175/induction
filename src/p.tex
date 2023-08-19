@@ -2446,6 +2446,7 @@ $\binom{x}{n}=\frac{\prod_{i=0}^{n-1}(x-i)}{n!}$.
 \end{rem}
 
 \subsection{不等式に関するもの}
+\subsubsection{冪に関するもの}
 \begin{prop}
   \label{p:20230808}
   $\forall n\in\NN$, $2^n> n$.
@@ -3004,7 +3005,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   よって, $x\geq 10$において$2^x > 10x^2$.
 \end{rem}
 
-\newest
 \begin{prop}
   \label{p:20230818}
   $n\in\NN, n\geq 10\implies 2^n\geq n^3$.
@@ -3085,24 +3085,88 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   よって, $x\geq 10$において$2^x > x^3$.
 \end{rem}
 
+
+\newest
+\begin{prop}
+  \label{p:20230819}
+  $n\in\NN \implies 3^n \geq 2n+1$.
+\end{prop}
+\begin{proof**}
+  $3^{0}=1= 2\cdot 0+1$である.
+  また, 
+  $n\geq 1$に対し$3^{n-1}\geq 1$であり,
+  $3^n=3^{n-1}+2\cdot 3^{n-1}$であことから,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    3^n \geq 2n+1
+    .
+  \end{align*}
+  このとき,
+  すべての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    3^{0}&=1\\
+     2\cdot 0+1&=1.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$3^{n-1} \geq 2n-1$である.
+  また, 
+  $n\geq 1$に対し, $3^n\geq 1$であるので,
+  \begin{align*}
+    3^n=3\cdot 3^{n-1}=(1+2)3^{n-1}=3^{n-1}+2\cdot 3^{n-1}\geq 2n-1+2\cdot 3^{n-1}\geq 2n-1+2=2n+1
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  \begin{align*}
+    f(x)=3^x-(2x+1)
+  \end{align*}
+  とおく.
+  \begin{align*}
+    \frac{d}{dx}f(x)&=\log 3 \cdot 3^x-2
+  \end{align*}
+  であるので,
+  $x\geq 1$において,
+  $\frac{d}{dx}f(x)> 0$.
+  したがって, $f(x)$は$x\geq 1$において単調増加.
+  また$f(1)=3-3=0$であるので,
+  $x\geq 1$において$f(x) \geq 0$.
+  よって, $x\geq 1$において$3^x \geq 2x+1$.
+  また, $f(0)=3^0-(2\cdot0+1)=0$であるので, $x=0$のときも,
+  $3^x\geq 2x+1$.
+\end{rem}
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示すこともできる:
+  $n=0$に対し, $3^0=1=2\cdot0+1$.
+  $n\geq 1$に対し, 
+  \begin{align*}
+    3^n=(1+2)^n=\sum_{i=0}^n \binom{n}{i}2^i
+    &\geq \binom{n}{0}+\binom{n}{1}2
+    =1+2n
+    .\qedhere
+  \end{align*}
+\end{rem}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
 
 
+
 \begin{prop}
   $n\in\NN$とする.
-  $n\geq 2$ならば, $3^n \geq 2n+1$.
-\end{prop}
-
-\begin{prop}
-$n\in\NN$とする.
   $n\geq 3$ならば, $3^n\geq 4n+10$.
 \end{prop}
-
-
-
-
 
 \begin{prop}
   $a_1=7$, $a_{n}=a_{n}^3$
