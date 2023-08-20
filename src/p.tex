@@ -3155,7 +3155,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{rem}
 
-\newest
 \begin{prop}
   \label{p:20230820}
   $n\in\NN,n\geq 3\implies 3^n> 4n+10$.
@@ -3226,6 +3225,67 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{rem}
 
+\newest
+\begin{prop}
+  \label{p:20230821}
+  $t>0$とする.
+  $\forall n\in\NN$,
+  $(1+t)^n\geq 1+nt$.
+\end{prop}
+\begin{proof**}
+  $(1+t)^0=1=1+0\cdot t$である.
+  また, 
+  $(1+t)^n=(1+t)(1+t)^{n-1}=(1+t)^{n-1}+t(1+t)^{n-1}$であることから,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $t>0$とする.
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    (1+t)^n\geq 1+nt
+    .
+  \end{align*}
+  このとき,
+  すべての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    (1+t)^0&=1\\
+     1+0\cdot t&=1.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $n\geq 1$とし,
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$(1+t)^{n-1}> 1+t(n-1)$である.
+  また, $t>0$であるので, 
+  $n\geq 1$に対し$t^2(n-1)\geq 0$である.
+  よって,
+  \begin{align*}
+    &(1+t)^n=(1+t)(1+t)^{n-1}\\
+    =&(1+t)^{n-1}+t(1+t)^{n-1}\\
+    \geq&
+    (1+t(n-1))+t(1+t(n-1))\\
+    =&1+tn+t^2(n-1)\\
+    \geq&1+tn
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+\begin{rem}
+  数学的帰納法を用いず, 以下のように示す方が一般的だと思う:
+  $n=0$に対し, $(1+t)^0=1=1+t\cdot0$.
+  $n\in\ZZ_{>0}$に対し, 
+  \begin{align*}
+    (1+t)^n=
+    \sum_{i=0}^n \binom{n}{i}t^i
+    &\geq \binom{n}{0}+\binom{n}{1}t
+    =1+nt
+    .\qedhere
+  \end{align*}
+\end{rem}
+
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
@@ -3234,10 +3294,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
 
 
 
-\begin{prop}
-  $n\geq 2$ならば,  $t>0$に対し,
-$(1+t)^n<1+nt$.
-\end{prop}
 
 \begin{prop}
   $n\geq 2$ならば,  $t>0$に対し,
