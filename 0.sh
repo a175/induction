@@ -1,5 +1,5 @@
 #!/bin/bash
-git merge master
+git merge master -m'merge from master'
 cd tools
 make
 cd ..
