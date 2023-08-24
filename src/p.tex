@@ -3285,7 +3285,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{rem}
 
-\newest
 \begin{prop}
   \label{p:20230823}
   $t>0$とする.
@@ -3333,6 +3332,84 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{proof*}
 
+\newest
+\begin{prop}
+  \label{p:20230824}
+  $\forall n\in\ZZ_{>0}$,
+  $n^2\leq \left(\sum_{i=1}^{n}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)$.
+\end{prop}
+\begin{proof**}
+  $1^2=1\cot 1$である.
+  また, 
+  \begin{align*}
+    \left(\sum_{i=1}^{n}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)
+    &=
+    n+\left(\sum_{i=2}^{n}\frac{n}{i}\right)
+    +\left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)
+    \\
+    &\geq
+    2n-1+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &\geq
+    2n-1+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n-1}\frac{1}{i}\right)
+  \end{align*}
+  であることから,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    n^2\leq \left(\sum_{i=1}^{n}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)
+    .
+  \end{align*}
+  このとき,
+  すべての$n\in\ZZ_{>0}$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(1)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    1^2=1\cdot 1.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  仮定から$(n-1)^2\leq \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n-1}\frac{1}{i}\right)$である.
+  また, $t>0$であるので, 
+  $n\geq 1$に対し$t^2(n-1)\geq 0$である.
+  よって,
+  \begin{align*}
+    \left(\sum_{i=1}^{n}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)
+    &=\left(n+\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &=n\left(\sum_{i=1}^{n}\frac{1}{i}\right)+\left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &=
+    n\cdot1+n\left(\sum_{i=2}^{n}\frac{1}{i}\right)+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &=
+    n\cdot1+\left(\sum_{i=2}^{n}\frac{n}{i}\right)
+    +\left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)
+    \\
+    &\geq
+    n\cdot1+\left(\sum_{i=2}^{n}1\right)+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &=
+    n+n-1+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &=
+    2n-1+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\\
+    &\geq
+    2n-1+
+    \left(\sum_{i=1}^{n-1}i\right)\left(\sum_{i=1}^{n-1}\frac{1}{i}\right)\\
+    &\geq
+    2n-1+(n-1)^2\\
+    &=2n-1+n^2-2n+1\\
+    &=n^2
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
 \section{Todo}
@@ -3359,9 +3436,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
 $\sum_{i=1}^{n}\frac{1}{i}\geq \frac{2n}{n+1}$.
 \end{prop}
 
-\begin{prop}
-$\left(\sum_{i=1}^{n}i\right)\left(\sum_{i=1}^{n}\frac{1}{i}\right)\geq n^2$.
-\end{prop}
 
 \begin{prop}
 $\sum_{i=1}^{n}\frac{1}{\sqrt{i}}<2\sqrt{n}$.
