@@ -3332,7 +3332,6 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
   \end{align*}
 \end{proof*}
 
-\newest
 \begin{prop}
   \label{p:20230824}
   $\forall n\in\ZZ_{>0}$,
@@ -3410,6 +3409,102 @@ $n\in\NN, n\geq 5\implies 2^n> n^2-2n+15$.
 \end{proof*}
 
 
+\newest
+\begin{prop}
+  \label{p:20230909}
+  $a>0$, $b>0$とする.
+  $\forall n\in\NN$,
+  $\left(\frac{a+b}{2}\right)^n\leq \frac{a^n+b^n}{2}$.
+\end{prop}
+\begin{proof**}
+  $\frac{a^0+b^0}{2}=\frac{1+1}{2}=1= \left(\frac{a+b}{2}\right)^0$である.
+  また, 
+  \begin{align*}
+    \frac{a^n+b^n}{2}
+    &=
+    \frac{(a^{n-1}+b^{n-1})(a+b)-ab(a^{n-2}+b^{n-2})}{2}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    -\frac{ab(a^{n-2}+b^{n-2})}{2}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{(a+b)(a^{n-1}+b^{n-1})-2ab(a^{n-2}+b^{n-2})}{4}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{a^{n}+b^{n}-a^{n-1}b-ab^{n-1})}{4}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{a^{n-1}(a-b)+b^{n-1}(b-a)}{4}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{(a-b)(a^{n-1}-b^{n-1})}{4}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{(a-b)((a-b)\sum_{i=0}^{n-2}a^{i}b^{n-2-i})}{4}\\
+    &=
+    \frac{(a+b)}{2}\frac{(a^{n-1}+b^{n-1})}{2}
+    +\frac{(a-b)^2\sum_{i=0}^{n-2}a^{i}b^{n-2-i}}{4}\\
+  \end{align*}
+  であることから,
+  $n$に関する数学的帰納法により示せる.
+\end{proof**}
+\begin{proof*}
+  $a>0$, $b>0$とする.
+  $P(n)$を次の命題とする:
+  \begin{align*}
+    \left(\frac{a+b}{2}\right)^n\leq \frac{a^n+b^n}{2}
+    .
+  \end{align*}
+  このとき,
+  すべての$n\in\NN$で$P(n)$が成り立つことを,
+  数学的帰納法で示す.
+
+  \paragraph{Base Case:}
+  $P(0)$が成り立つことは, 以下から明らか:
+  \begin{align*}
+    \left(\frac{a+b}{2}\right)^0&=1.\\
+    \frac{a^0+b^0}{2}&=\frac{1+1}{2}=1.
+  \end{align*}
+  \paragraph{Induction Step:}
+  $P(n-1)\implies P(n)$を示す.
+  $a>0$, $b>0$であるので,
+  $n=1$に対しては
+  \begin{align*}
+    \frac{(a-b)(a^{n-1}-b^{n-1})}{4}=0\geq 0
+  \end{align*}
+  であり,
+  $n>1$に対しは$(a-b)^2\geq 0$, $a^{i}b^{n-2-i}>0$であることから
+  \begin{align*}
+    \frac{(a-b)(a^{n-1}-b^{n-1})}{4}=\frac{(a-b)^2\sum_{i=0}^{n-2}a^{i}b^{n-2-i}}{4}\geq 0
+  \end{align*}
+  である.
+  また,
+  仮定から
+  $\left(\frac{a+b}{2}\right)^{n-1}\leq \frac{a^{n-1}+b^{n-1}}{2}$
+  であるので,
+  \begin{align*}
+    \left(\frac{a+b}{2}\right)^{n}
+    &=
+    \left(\frac{a+b}{2}\right)\left(\frac{a+b}{2}\right)^{n-1}\\
+    &\leq
+    \left(\frac{a+b}{2}\right)\left(\frac{a^{n-1}+b^{n-1}}{2}\right)\\
+    &=
+    \frac{(a+b)(a^{n-1}+b^{n-1})}{4}\\
+    &\leq
+    \frac{(a+b)(a^{n-1}+b^{n-1})}{4}
+    +\frac{(a-b)(a^{n-1}-b^{n-1})}{4}\\
+    &=
+    \frac{(a+b)(a^{n-1}+b^{n-1})+(a-b)(a^{n-1}-b^{n-1})}{4}\\
+    &=
+    \frac{2a^n+2b^n}{4}\\
+    &=
+    \frac{a^n+b^n}{2}
+    .\qedhere
+  \end{align*}
+\end{proof*}
+
+
 
 \section{制限された数学的帰納法 (Limited mathematical induction)}
 
@@ -3448,9 +3543,6 @@ $n\in\NN$とする.
 \end{prop}
 
 
-\begin{prop}
-$\frac{a^n+b^n}{2}\geq \left(\frac{a+b}{2}\right)^n$
-\end{prop}
 
 \begin{prop}
   $a_i>0$なら,
