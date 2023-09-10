@@ -2,10 +2,8 @@ name: platex
 
 on:
   push:
-    branches:
-	- 'master'
-    path:
-	- 'src/*tex'
+    branches: ['master']
+    path:['src/*tex']
 
 jobs:
   build:
