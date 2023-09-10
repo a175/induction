@@ -9,7 +9,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Setup file
+#      - name: Setup file
 #        uses: actions/checkout@v2
 #	with:
 #	  ref: gh-pages
