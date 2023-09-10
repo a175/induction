@@ -13,7 +13,7 @@ jobs:
         with:
           ref: gh-pages
 
-      - name: build
+      - name: build pdf
       	run: |
           sudo apt-get update; sudo apt-get install -y texlive texlive-lang-japanese; bash 0.sh
 
