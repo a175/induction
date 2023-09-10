@@ -9,8 +9,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 	with:
 	  ref: gh-pages
       - name: build
